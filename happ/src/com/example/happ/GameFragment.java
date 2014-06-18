@@ -2,6 +2,8 @@ package com.example.happ;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -25,12 +27,14 @@ public class GameFragment extends Fragment {
 	private ImageView topIndicator, bottomIndicator;
 	private TextView score, bestScore;
 	private ImageButton muteButton;
+	private TimeBar mTimeBar;
 	
 	// Game logic
 	private Game game;
 
 	// UI helper variables
 	private boolean topLine = true;
+	private boolean started = false;
 	private int cursor = 0;
 
 	// SoundManager
@@ -38,6 +42,10 @@ public class GameFragment extends Fragment {
 	
 	// ViewPager
 	private ViewPager mViewPager;
+	
+	// Thread Pool
+	private ScheduledThreadPoolExecutor mStpe;
+	private Runnable timer;
 	
 	// Has to be empty
 	public GameFragment() {
@@ -51,7 +59,7 @@ public class GameFragment extends Fragment {
 		this.cellsTopView = new ArrayList<ImageView>();
 		this.cellsBottomView = new ArrayList<ImageView>();
 		this.game = new Game();
-
+		
 		// Inflate the view
 		View root = inflater.inflate(R.layout.fragment_game, container, false);
 
@@ -63,13 +71,20 @@ public class GameFragment extends Fragment {
 		initScore(root);
 		initHighscoreButton(root);
 		initMuteButton(root);
+		initTimeBar(root);
 		
 		// Start a new match
 		initMatch();
 		
 		return root;
 	}
-	
+
+	private void initTimeBar(View root) {
+		// TODO Auto-generated method stub
+		ImageView bar = (ImageView) root.findViewById(R.id.timebar);
+		mTimeBar = new TimeBar(bar);
+	}
+
 	/*
 	 * Initialize score
 	 */
@@ -77,7 +92,6 @@ public class GameFragment extends Fragment {
 		score = (TextView) root.findViewById(R.id.score_number);
 		bestScore = (TextView) root.findViewById(R.id.bestscore_number);
 	}
-	
 	
 	/*
 	 * Initialize highscores button and set logic
@@ -87,7 +101,7 @@ public class GameFragment extends Fragment {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				stopMatch();
+				initMatch();
 				mViewPager.setCurrentItem(1);	
 			}
 		});
@@ -204,7 +218,7 @@ public class GameFragment extends Fragment {
 		initGameBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				initGame();
+				initMatch();
 			}
 		});
 	}
@@ -219,6 +233,23 @@ public class GameFragment extends Fragment {
 	}
 
 	private void writeNumber(int number) {
+		// First try? Start timer if first try
+		if(!started) {
+			// Start the thread for timer
+			// Initial thread pool for game logic
+			mStpe = new ScheduledThreadPoolExecutor(2);
+			this.timer = new Runnable() {
+				@Override
+				public void run() {
+					System.out.println("timer called");
+					float pf = mTimeBar.getPercentage();
+					mTimeBar.setPercentage(pf * 0.95f);
+				}
+			};
+			mStpe.scheduleAtFixedRate(this.timer, 0, 1000, TimeUnit.MILLISECONDS);
+			started = true;
+		}
+		
 		// Get current line
 		List<ImageView> line = topLine ? cellsTopView : cellsBottomView;
 		
@@ -306,13 +337,16 @@ public class GameFragment extends Fragment {
 	private void initMatch() {
 		score.setText(String.valueOf(0));
 		bestScore.setText(String.valueOf(0));
-		initGame();
-		// Clear score
+		initGame(); // new secret etc.
+		mTimeBar.setPercentage(1.0f);
+		
+		if(started) {
+			mStpe.shutdown();
+			this.timer = null;
+		}
+		started = false;
 	}
-	
-	private void stopMatch() {
-		initMatch();
-	}
+
 	
 	public void setSoundManager(SoundManager manager) {
 		this.soundManager = manager;
