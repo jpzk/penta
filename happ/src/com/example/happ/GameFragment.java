@@ -3,7 +3,8 @@ package com.example.happ;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,7 +24,8 @@ public class GameFragment extends Fragment {
 	private List<ImageView> cellsTopView, cellsBottomView;
 	private ImageView topIndicator, bottomIndicator;
 	private TextView score, bestScore;
-
+	private ImageButton muteButton;
+	
 	// Game logic
 	private Game game;
 
@@ -33,6 +35,9 @@ public class GameFragment extends Fragment {
 
 	// SoundManager
 	private SoundManager soundManager;
+	
+	// ViewPager
+	private ViewPager mViewPager;
 	
 	// Has to be empty
 	public GameFragment() {
@@ -56,6 +61,8 @@ public class GameFragment extends Fragment {
 		initSidebar(root);
 		initIndicator(root);
 		initScore(root);
+		initHighscoreButton(root);
+		initMuteButton(root);
 		
 		// Start a new match
 		initMatch();
@@ -67,7 +74,52 @@ public class GameFragment extends Fragment {
 	 * Initialize score
 	 */
 	private void initScore(View root) {
+		score = (TextView) root.findViewById(R.id.score_number);
+		bestScore = (TextView) root.findViewById(R.id.bestscore_number);
+	}
+	
+	
+	/*
+	 * Initialize highscores button and set logic
+	 */
+	private void initHighscoreButton(View root) {
+		ImageButton btn = (ImageButton) root.findViewById(R.id.highscore_btn);
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				stopMatch();
+				mViewPager.setCurrentItem(1);	
+			}
+		});
+	}
+	
+	/*
+	 * Initialize code and logic for mute button
+	 */
+	private void initMuteButton(View root) {
+		muteButton = (ImageButton) root.findViewById(R.id.mute_btn);
+		if(soundManager.getMuteState()) {
+			Drawable sound = getResources().getDrawable(R.drawable.sound);
+			muteButton.setImageDrawable(sound);
+		} else {
+			Drawable sound = getResources().getDrawable(R.drawable.sound2);
+			muteButton.setImageDrawable(sound);
+		}
 		
+		// Get previous mute state
+		muteButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				boolean state = soundManager.muteunmute();
+				if(state) {
+					Drawable sound = getResources().getDrawable(R.drawable.sound);
+					muteButton.setImageDrawable(sound);
+				} else {
+					Drawable sound = getResources().getDrawable(R.drawable.sound2);
+					muteButton.setImageDrawable(sound);
+				}
+			}
+		});
 	}
 	
 	/*
@@ -156,11 +208,8 @@ public class GameFragment extends Fragment {
 			}
 		});
 	}
-	
-	public void setSoundManager(SoundManager manager) {
-		this.soundManager = manager;
-	}
 
+	
 	private Drawable getNumberDrawable(int number, int type) {
 		String fieldName = "@drawable/n" + String.valueOf(number) + "_"
 				+ String.valueOf(type);
@@ -255,12 +304,22 @@ public class GameFragment extends Fragment {
 	}
 	
 	private void initMatch() {
+		score.setText(String.valueOf(0));
+		bestScore.setText(String.valueOf(0));
 		initGame();
-		
 		// Clear score
-		
+	}
+	
+	private void stopMatch() {
+		initMatch();
+	}
+	
+	public void setSoundManager(SoundManager manager) {
+		this.soundManager = manager;
 	}
 
-
+	public void setViewPager(ViewPager pager) {
+		mViewPager = pager;
+	}
 
 }

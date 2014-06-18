@@ -10,6 +10,7 @@ import android.media.SoundPool;
 
 public class SoundManager {
 	
+	private boolean mute;
 	private float volume;
 	private SoundThread st;
 	private SoundPool pool;
@@ -21,6 +22,7 @@ public class SoundManager {
 		this.context = context;
 		this.manager = manager;
 		this.volume = 1.0f;
+		this.mute = true;
 	}
 
 	public void load() throws IOException {
@@ -39,11 +41,26 @@ public class SoundManager {
 		this.onSuccess = this.pool.load(sfd, 1);
 	}
 
+	public boolean muteunmute() {
+		if(getMuteState()) {
+			unmute();
+		} else {
+			mute();
+		}
+		return !getMuteState();
+	}
+	
+	public boolean getMuteState() {
+		return this.mute;
+	}
+	
 	public void mute() {
+		this.mute = true;
 		this.volume = 0.0f;
 	}
 	
 	public void unmute() {
+		this.mute = false;
 		this.volume = 1.0f;
 	}
 	
