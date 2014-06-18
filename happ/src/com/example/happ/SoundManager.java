@@ -21,8 +21,8 @@ public class SoundManager {
 	public SoundManager(Context context, AssetManager manager) {
 		this.context = context;
 		this.manager = manager;
-		this.volume = 1.0f;
 		this.mute = true;
+		this.volume = 0.0f;
 	}
 
 	public void load() throws IOException {
@@ -47,7 +47,7 @@ public class SoundManager {
 		} else {
 			mute();
 		}
-		return !getMuteState();
+		return getMuteState();
 	}
 	
 	public boolean getMuteState() {

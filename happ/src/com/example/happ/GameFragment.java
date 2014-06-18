@@ -98,7 +98,7 @@ public class GameFragment extends Fragment {
 	 */
 	private void initMuteButton(View root) {
 		muteButton = (ImageButton) root.findViewById(R.id.mute_btn);
-		if(soundManager.getMuteState()) {
+		if(!soundManager.getMuteState()) {
 			Drawable sound = getResources().getDrawable(R.drawable.sound);
 			muteButton.setImageDrawable(sound);
 		} else {
@@ -111,7 +111,7 @@ public class GameFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				boolean state = soundManager.muteunmute();
-				if(state) {
+				if(!state) {
 					Drawable sound = getResources().getDrawable(R.drawable.sound);
 					muteButton.setImageDrawable(sound);
 				} else {
