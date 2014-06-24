@@ -31,9 +31,9 @@ public class Timer {
 	private final Semaphore mSemaphore;
 	
 	// Time per Match
-	private float mTimePerMatch = 100000.0f;
+	private float mTimePerMatch = 100.0f * 1000.0f;
 	private float mTimeBudgetCap = mTimePerMatch;
-	private float mTimeBudgetAdd = 10.0f;
+	private float mTimeBudgetAdd = 10.0f * 1000.0f;
 	private long mTimeBudgetClock = 100;
 	private float mTimeBudget = mTimePerMatch;
 	private TimeUnit unit = TimeUnit.MILLISECONDS;
