@@ -1,4 +1,9 @@
-package com.example.happ;
+package com.example.happ.highscores;
+
+import com.example.happ.R;
+import com.example.happ.R.id;
+import com.example.happ.R.layout;
+import com.example.happ.sound.SoundManager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

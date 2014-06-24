@@ -1,4 +1,4 @@
-package com.example.happ;
+package com.example.happ.sound;
 
 import java.io.IOException;
 
@@ -21,8 +21,8 @@ public class SoundManager {
 	public SoundManager(Context context, AssetManager manager) {
 		this.context = context;
 		this.manager = manager;
-		this.mute = true;
-		this.volume = 0.0f;
+		this.mute = false;
+		this.volume = 0.5f;
 	}
 
 	public void load() throws IOException {

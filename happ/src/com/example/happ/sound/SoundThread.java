@@ -1,4 +1,4 @@
-package com.example.happ;
+package com.example.happ.sound;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

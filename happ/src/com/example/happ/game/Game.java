@@ -1,4 +1,4 @@
-package com.example.happ;
+package com.example.happ.game;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,14 +7,16 @@ import java.util.Random;
 
 public class Game {
 	
-	List<Integer> secret;
+	private static final String TAG = "Game";
+	
+	private List<Integer> secret;
 	
 	public Game() {
 		this.secret = new ArrayList<Integer>();
-		initGame();
+		nextNumber();
 	}
 	
-	public void initGame() {
+	public void nextNumber() {
 		long seed = System.nanoTime();
 		secret.clear();
 		for (int i = 1; i < 10; i++) {

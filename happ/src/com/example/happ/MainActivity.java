@@ -1,10 +1,13 @@
 package com.example.happ;
 
 import java.io.IOException;
-import android.support.v4.app.Fragment;
+
+import com.example.happ.game.GameFragment;
+import com.example.happ.highscores.HighscoreFragment;
+import com.example.happ.sound.SoundManager;
+
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Window;
@@ -24,43 +27,6 @@ public class MainActivity extends FragmentActivity {
 	
 	// ViewPager
 	ViewPager mViewPager;
-
-	public class GamePagerAdapter extends FragmentStatePagerAdapter {
-		
-		private GameFragment mGameFragment;
-		private HighscoreFragment mHighscoresFragment;
-		
-	    public GamePagerAdapter(FragmentManager fm) {
-	        super(fm);
-	    }
-	    
-	    private void setGameFragment(GameFragment fragment) {
-	    	this.mGameFragment = fragment;
-	    }
-	    
-	    private void setHighscoresFragment(HighscoreFragment fragment) {
-	    	this.mHighscoresFragment = fragment;
-	    }
-	    
-	    @Override
-	    public Fragment getItem(int i) {
-	    	if(i == 0) {
-	    		return mGameFragment;
-	    	} else {
-	    		return mHighscoreFragment;
-	    	}
-	    }
-
-	    @Override
-	    public int getCount() {
-	        return 2;
-	    }
-
-	    @Override
-	    public CharSequence getPageTitle(int position) {
-	        return "OBJECT " + (position + 1);
-	    }
-	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -86,25 +52,24 @@ public class MainActivity extends FragmentActivity {
 		
 		this.mSoundManager.startSound(); // start thread
 		
-		// Initialize fragments
-		mGameFragment = new GameFragment();
-		mGameFragment.setSoundManager(this.mSoundManager);
-		mHighscoreFragment = new HighscoreFragment();
-		mHighscoreFragment.setSoundManager(this.mSoundManager);
-		
         // ViewPager and its adapters use support library
         // fragments, so use getSupportFragmentManager.
-        mPagerAdapter = new GamePagerAdapter(getSupportFragmentManager());
-        mPagerAdapter.setGameFragment(this.mGameFragment);
-        mPagerAdapter.setHighscoresFragment(this.mHighscoreFragment);
-        
-        // Initialize ViewPaper
+		FragmentManager fm = getSupportFragmentManager();
+        mPagerAdapter = new GamePagerAdapter(fm, this.mSoundManager);
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mPagerAdapter);
-        
-        // Add ViewPager to Fragments
-        mGameFragment.setViewPager(mViewPager);
-        mHighscoreFragment.setViewPager(mViewPager);
+	}
+	
+	public void changeToHighscore() {
+		mViewPager.setCurrentItem(1);
+	}
+	
+	public void changeToGame() {
+		mViewPager.setCurrentItem(0);
+	}
+	
+	public SoundManager getSoundManger() {
+		return mSoundManager;
 	}
 	
 	@Override

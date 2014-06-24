@@ -1,4 +1,4 @@
-package com.example.happ;
+package com.example.happ.sound;
 
 public class SoundItem {
 
