@@ -26,6 +26,7 @@ public class GameFragment extends Fragment {
 	private Numpad mNumpad;
 	private Timer mTimer;
 	private Scorer mScorer;
+	private Sidebar mSidebar;
 	
 	// Game logic
 	private Game game;
@@ -60,6 +61,7 @@ public class GameFragment extends Fragment {
 		mIOBar = new IOBar(this, root);
 		mNumpad = new Numpad(this, root);
 		mTimer = new Timer(this, root);
+		mSidebar = new Sidebar(this, root);
 		
 		endMatch();		
 		return root;
@@ -90,8 +92,11 @@ public class GameFragment extends Fragment {
 			boolean success = game.performCheck(guess);
 			if (success) {
 				mSoundManager.playSuccess();
+				mIOBar.prepareNext();
 				mTimer.increaseTimeBudgetCap();
-				nextNumber();
+				mScorer.incrementScore();
+				guess.clear();
+				game.nextNumber();
 			} else {
 				// show response, clear guess and set cursor to 0 and switch
 				// lines.
@@ -105,21 +110,14 @@ public class GameFragment extends Fragment {
 	}	
 
 	/**
-	 * Prepare UI for the next number.
-	 */
-	public void nextNumber() {
-		guess.clear();
-		game.nextNumber();
-		mIOBar.prepareGame();
-	}
-	
-	/**
 	 * Initialize a new match.
 	 */
 	public void initMatch() {
 		started = false;
 		mScorer.resetScore();
-		nextNumber(); // new secret etc.
+		mIOBar.prepareGame();
+		guess.clear();
+		game.nextNumber();
 	}
 	
 	/**
@@ -129,5 +127,13 @@ public class GameFragment extends Fragment {
 		Log.v(TAG, "Called endMatch in GameFragment");
 		mTimer.stopMeasuring();
 		initMatch();
+	}
+	
+	public void endMatchByTimeout() {
+		Log.v(TAG, "Called endMatch in GameFragment by Time out");
+		mTimer.stopMeasuring();
+		initMatch();
+		
+		// Keep score. @todo
 	}
 }

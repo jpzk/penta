@@ -31,7 +31,7 @@ public class Timer {
 	private final Semaphore mSemaphore;
 	
 	// Time per Match
-	private float mTimePerMatch = 10000.0f;
+	private float mTimePerMatch = 100000.0f;
 	private float mTimeBudgetCap = mTimePerMatch;
 	private float mTimeBudgetAdd = 10.0f;
 	private long mTimeBudgetClock = 100;
@@ -146,7 +146,7 @@ public class Timer {
 		mParent.getActivity().runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				mParent.endMatch();
+				mParent.endMatchByTimeout();
 			}
 		});
 	}
