@@ -3,6 +3,7 @@ package com.example.happ.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.happ.LocalStore;
 import com.example.happ.MainActivity;
 import com.example.happ.R;
 import com.example.happ.sound.SoundManager;
@@ -18,6 +19,9 @@ public class GameFragment extends Fragment {
 
 	private static final String TAG = "GameFragment";
 
+	// Activiy
+	private MainActivity mActivity;
+	
 	// Helper lists for game logic
 	private List<Integer> guess;
 	
@@ -35,6 +39,9 @@ public class GameFragment extends Fragment {
 	// SoundManager
 	private SoundManager mSoundManager;
 	
+	// Local store
+	private LocalStore mStore;
+	
 	// Has to be parameter-less
 	public GameFragment() {
 	}
@@ -46,11 +53,14 @@ public class GameFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		this.guess = new ArrayList<Integer>();
-		this.game = new Game();
+		mActivity = (MainActivity) getActivity();
 		
-		// Reference the sound manager
-		mSoundManager = ((MainActivity) getActivity()).getSoundManger();
+		guess = new ArrayList<Integer>();
+		game = new Game();
+		
+		// Reference the sound manager, local store
+		mSoundManager = mActivity.getSoundManger();
+		mStore = mActivity.getLocalStore();
 		
 		// Inflate the view
 		int resId = R.layout.fragment_game;
@@ -62,6 +72,9 @@ public class GameFragment extends Fragment {
 		mNumpad = new Numpad(this, root);
 		mTimer = new Timer(this, root);
 		mSidebar = new Sidebar(this, root);
+		
+		// Set the best score.
+		mScorer.setBestScore(mStore.getBestScore());
 		
 		endMatch();		
 		return root;
@@ -129,11 +142,23 @@ public class GameFragment extends Fragment {
 		initMatch();
 	}
 	
+	/**
+	 * Called when the game ends naturally by time-out.
+	 */
 	public void endMatchByTimeout() {
 		Log.v(TAG, "Called endMatch in GameFragment by Time out");
 		mTimer.stopMeasuring();
-		initMatch();
 		
-		// Keep score. @todo
+		// Update the best score.
+		int score = mScorer.getScore();
+		if(score > mScorer.getBestScore()) {
+			mScorer.setBestScore(score);
+			mStore.putBestScore(score);
+		}
+		
+		// If not registered switch to register fragment
+		mActivity.changeToRegister();
+		
+		initMatch();
 	}
 }

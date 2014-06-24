@@ -5,11 +5,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.happ.game.GameFragment;
+import com.example.happ.game.RegisterFragment;
 import com.example.happ.highscores.HighscoreFragment;
 import com.example.happ.sound.SoundManager;
 
 public class GamePagerAdapter extends FragmentStatePagerAdapter {
 	
+	private RegisterFragment mRegisterFragment;
 	private GameFragment mGameFragment;
 	private HighscoreFragment mHighscoresFragment;
 	
@@ -17,6 +19,7 @@ public class GamePagerAdapter extends FragmentStatePagerAdapter {
         super(fm);
         
 		// Initialize fragments
+        mRegisterFragment = new RegisterFragment();
 		mGameFragment = new GameFragment();
 		mHighscoresFragment = new HighscoreFragment();
     }
@@ -24,14 +27,18 @@ public class GamePagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int i) {
     	if(i == 0) {
+    		return mRegisterFragment;
+    	} 
+    	if(i == 1) {
     		return mGameFragment;
-    	} else {
+    	}
+    	else {
     		return mHighscoresFragment;
     	}
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 }

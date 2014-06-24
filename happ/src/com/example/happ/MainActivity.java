@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.example.happ.game.GameFragment;
 import com.example.happ.highscores.HighscoreFragment;
+import com.example.happ.network.NetworkManager;
 import com.example.happ.sound.SoundManager;
 
 import android.support.v4.app.FragmentActivity;
@@ -19,6 +20,12 @@ public class MainActivity extends FragmentActivity {
 	GameFragment mGameFragment;
 	HighscoreFragment mHighscoreFragment;
 
+	// Network
+	NetworkManager mNetwork;
+	
+	// LocalStore
+	LocalStore mStore;
+	
 	// SoundManager
 	SoundManager mSoundManager;
 	
@@ -52,6 +59,12 @@ public class MainActivity extends FragmentActivity {
 		
 		this.mSoundManager.startSound(); // start thread
 		
+		// Initialize local storage
+		this.mStore = new LocalStore(this);
+		
+		// Initialize the network manager
+		this.mNetwork = new NetworkManager();
+		
         // ViewPager and its adapters use support library
         // fragments, so use getSupportFragmentManager.
 		FragmentManager fm = getSupportFragmentManager();
@@ -60,16 +73,28 @@ public class MainActivity extends FragmentActivity {
         mViewPager.setAdapter(mPagerAdapter);
 	}
 	
-	public void changeToHighscore() {
-		mViewPager.setCurrentItem(1);
+	public void changeToRegister() {
+		mViewPager.setCurrentItem(0);
 	}
 	
 	public void changeToGame() {
-		mViewPager.setCurrentItem(0);
+		mViewPager.setCurrentItem(1);
+	}
+	
+	public void changeToHighscore() {
+		mViewPager.setCurrentItem(2);
 	}
 	
 	public SoundManager getSoundManger() {
 		return mSoundManager;
+	}
+	
+	public LocalStore getLocalStore() {
+		return mStore;
+	}
+	
+	public NetworkManager getNetworkManager() {
+		return mNetwork;
 	}
 	
 	@Override

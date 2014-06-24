@@ -47,6 +47,24 @@ public class Scorer {
 	}
 	
 	/**
+	 * Get the score.
+	 * 
+	 * @return
+	 */
+	public int getScore() {
+		return mScore;
+	}
+	
+	/**
+	 * Get the best score.
+	 * 
+	 * @return
+	 */
+	public int getBestScore() {
+		return mBestScore;
+	}
+	
+	/**
 	 * Set the best score
 	 * 
 	 * @param score
