@@ -3,12 +3,14 @@ package com.example.happ;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,7 @@ public class GameFragment extends Fragment {
 	private TextView score, bestScore;
 	private ImageButton muteButton;
 	private TimeBar mTimeBar;
+	private TimeCounter mTimeCounter;
 	
 	// Game logic
 	private Game game;
@@ -47,10 +50,26 @@ public class GameFragment extends Fragment {
 	private ScheduledThreadPoolExecutor mStpe;
 	private Runnable timer;
 	
-	// Has to be empty
+	// Time per Match
+	private float mTimePerMatch = 10000.0f;
+	private float timeBudgetCap = mTimePerMatch;
+	private float timeBudgetAdd = 10.0f;
+	private long timeBudgetClock = 100;
+	private long lastRealtime = 0;
+	private long elapsedRealtime = 0;
+	private float mTimeBudget = mTimePerMatch;
+
+	// Semaphore for TimeBudget
+	private final Semaphore timeBudgetSemaphore;
+	
+	// Has to be parameter-less
 	public GameFragment() {
+		timeBudgetSemaphore = new Semaphore(1);
 	}
 
+	/**
+	 * Called when the Fragment view is created.
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -72,29 +91,48 @@ public class GameFragment extends Fragment {
 		initHighscoreButton(root);
 		initMuteButton(root);
 		initTimeBar(root);
+		initTimeCounter(root);
 		
 		// Start a new match
 		initMatch();
 		
 		return root;
 	}
-
+	
+	/**
+	 * Initialize the time counter UI.
+	 * 
+	 * @param root
+	 */
+	private void initTimeCounter(View root) {
+		TextView view = (TextView) root.findViewById(R.id.timecounter);
+		mTimeCounter = new TimeCounter(view);
+	}
+	
+	/**
+	 * Initialize the time bar UI.
+	 * 
+	 * @param root
+	 */
 	private void initTimeBar(View root) {
-		// TODO Auto-generated method stub
 		ImageView bar = (ImageView) root.findViewById(R.id.timebar);
 		mTimeBar = new TimeBar(bar);
 	}
 
-	/*
-	 * Initialize score
+	/**
+	 * Initialize the score UI.
+	 * 
+	 * @param root
 	 */
 	private void initScore(View root) {
 		score = (TextView) root.findViewById(R.id.score_number);
 		bestScore = (TextView) root.findViewById(R.id.bestscore_number);
 	}
 	
-	/*
-	 * Initialize highscores button and set logic
+	/**
+	 * Initialize the highscore button UI.
+	 * 
+	 * @param root
 	 */
 	private void initHighscoreButton(View root) {
 		ImageButton btn = (ImageButton) root.findViewById(R.id.highscore_btn);
@@ -210,8 +248,10 @@ public class GameFragment extends Fragment {
 		}
 	}
 	
-	/*
-	 * Initialize the sidebar UI
+	/**
+	 * Initialize the sidebar.
+	 * 
+	 * @param root
 	 */
 	private void initSidebar(View root) {
 		ImageButton initGameBtn = (ImageButton) root.findViewById(R.id.initGameBtn);
@@ -222,8 +262,14 @@ public class GameFragment extends Fragment {
 			}
 		});
 	}
-
 	
+	/**
+	 * Helper function to get number drawable.
+	 * 
+	 * @param number
+	 * @param type
+	 * @return
+	 */
 	private Drawable getNumberDrawable(int number, int type) {
 		String fieldName = "@drawable/n" + String.valueOf(number) + "_"
 				+ String.valueOf(type);
@@ -232,21 +278,49 @@ public class GameFragment extends Fragment {
 		return getResources().getDrawable(identifier);
 	}
 
+	/**
+	 * Called when number on numpad pressed.
+	 * 
+	 * @param number
+	 */
 	private void writeNumber(int number) {
 		// First try? Start timer if first try
 		if(!started) {
 			// Start the thread for timer
 			// Initial thread pool for game logic
 			mStpe = new ScheduledThreadPoolExecutor(2);
+			lastRealtime = SystemClock.elapsedRealtime();
 			this.timer = new Runnable() {
 				@Override
 				public void run() {
-					System.out.println("timer called");
-					float pf = mTimeBar.getPercentage();
-					mTimeBar.setPercentage(pf * 0.95f);
+					// Check if time is up.
+					if(mTimeBudget < 0) {
+						getActivity().runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								initMatch();
+							}
+						});
+						return;
+					}
+					
+					try {
+						timeBudgetSemaphore.acquire(); // blocking until acquired.
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					long now = SystemClock.elapsedRealtime();
+					elapsedRealtime = now - lastRealtime;
+					mTimeBudget -= elapsedRealtime;
+					timeBudgetSemaphore.release();
+					
+					float pf = mTimeBudget / mTimePerMatch;
+					mTimeBar.setPercentage(pf);
+					mTimeCounter.setTime(mTimeBudget);
+					lastRealtime = SystemClock.elapsedRealtime();
 				}
 			};
-			mStpe.scheduleAtFixedRate(this.timer, 0, 1000, TimeUnit.MILLISECONDS);
+			mStpe.scheduleAtFixedRate(this.timer, 0, timeBudgetClock, TimeUnit.MILLISECONDS);
 			started = true;
 		}
 		
@@ -267,8 +341,18 @@ public class GameFragment extends Fragment {
 		if (cursor == 5) {
 			boolean success = game.performCheck(guess);
 			if (success) {
-				System.out.println("Not implemented");
 				soundManager.playSuccess();
+				try {
+					timeBudgetSemaphore.acquire(); // block until acquired.
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				mTimeBudget += timeBudgetAdd;
+				if(mTimeBudget > timeBudgetCap) {
+					mTimeBudget = timeBudgetCap;
+				}
+				timeBudgetSemaphore.release();
 				initGame();
 			} else {
 				// show response, clear guess and set cursor to 0 and switch
@@ -335,16 +419,20 @@ public class GameFragment extends Fragment {
 	}
 	
 	private void initMatch() {
-		score.setText(String.valueOf(0));
-		bestScore.setText(String.valueOf(0));
-		initGame(); // new secret etc.
-		mTimeBar.setPercentage(1.0f);
-		
 		if(started) {
 			mStpe.shutdown();
 			this.timer = null;
 		}
 		started = false;
+		
+		score.setText(String.valueOf(0));
+		bestScore.setText(String.valueOf(0));
+
+		mTimeBudget = mTimePerMatch;
+		mTimeBar.setPercentage(1.0f);
+		mTimeCounter.setTime(mTimeBudget);
+		
+		initGame(); // new secret etc.
 	}
 
 	

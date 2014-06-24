@@ -6,7 +6,7 @@
     android:paddingBottom="5dp" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/timecounter"
         android:layout_width="41dp"
         android:layout_height="wrap_content"
         android:background="@drawable/balk2"
