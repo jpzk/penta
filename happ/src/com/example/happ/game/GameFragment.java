@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.happ.LocalStore;
 import com.example.happ.MainActivity;
 import com.example.happ.R;
+import com.example.happ.network.NetworkManager;
 import com.example.happ.sound.SoundManager;
 
 import android.support.v4.app.Fragment;
@@ -42,6 +43,9 @@ public class GameFragment extends Fragment {
 	// Local store
 	private LocalStore mStore;
 	
+	// Network Manager
+	private NetworkManager mNetwork;
+	
 	// Has to be parameter-less
 	public GameFragment() {
 	}
@@ -61,6 +65,7 @@ public class GameFragment extends Fragment {
 		// Reference the sound manager, local store
 		mSoundManager = mActivity.getSoundManger();
 		mStore = mActivity.getLocalStore();
+		mNetwork = mActivity.getNetworkManager();
 		
 		// Inflate the view
 		int resId = R.layout.fragment_game;
@@ -157,7 +162,10 @@ public class GameFragment extends Fragment {
 		}
 		
 		// If not registered switch to register fragment
-		mActivity.changeToRegister();
+		NetworkManager network = mActivity.getNetworkManager();
+		if(network.isOnline()) {
+			mActivity.changeToRegister();
+		}
 		
 		initMatch();
 	}

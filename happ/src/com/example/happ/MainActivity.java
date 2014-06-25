@@ -63,7 +63,7 @@ public class MainActivity extends FragmentActivity {
 		this.mStore = new LocalStore(this);
 		
 		// Initialize the network manager
-		this.mNetwork = new NetworkManager();
+		this.mNetwork = new NetworkManager(this);
 		
         // ViewPager and its adapters use support library
         // fragments, so use getSupportFragmentManager.

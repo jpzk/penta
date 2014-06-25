@@ -68,7 +68,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/register_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -84,8 +84,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Player Name"
+        android:hint="Player Name"
+        android:inputType="textNoSuggestions"
         android:textColor="#FFF" >
 
         <requestFocus />
