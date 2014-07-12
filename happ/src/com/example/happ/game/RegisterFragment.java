@@ -106,7 +106,7 @@ public class RegisterFragment extends Fragment {
 		});
 		// Skip to game if network is not available.
 		NetworkManager network = mActivity.getNetworkManager();
-		if (!network.isOnline()) {
+		if (!network.isOnline() || mStore.hasPlayerName()) {
 			mActivity.changeToGame();
 		}
 
