@@ -1,6 +1,8 @@
 package com.example.happ.game;
 
+import com.example.happ.LocalStore;
 import com.example.happ.R;
+import com.example.happ.network.NetworkManager;
 
 import android.view.View;
 import android.widget.TextView;
@@ -9,17 +11,29 @@ public class Scorer {
 	
 	private static final String TAG = "Scorer";
 	
-	private TextView mScoreTV, mBestScoreTV;
+	private TextView mScoreTV, mBestScoreTV, mPlayerName;
 	private int mScore, mBestScore;
+	private NetworkManager mNetwork;
+	private LocalStore mStore;
 	
 	/**
 	 * 
 	 * @param fragment
 	 * @param root
 	 */
-	public Scorer(View root) {
+	public Scorer(View root, NetworkManager pNetwork, LocalStore pStore) {
+		
 		mScoreTV = (TextView) root.findViewById(R.id.score_number);
 		mBestScoreTV = (TextView) root.findViewById(R.id.bestscore_number);
+		mPlayerName = (TextView) root.findViewById(R.id.player_name);
+		mStore = pStore;
+		mNetwork = pNetwork;
+		
+		if(pStore.hasPlayerName()) { 
+			mPlayerName.setText(mStore.getPlayerName());
+		} else {
+			mPlayerName.setText("Player");
+		}
 	}
 	
 	/**
@@ -72,5 +86,28 @@ public class Scorer {
 	public void setBestScore(int score) {
 		mBestScore = score;
 		mBestScoreTV.setText(String.valueOf(mBestScore));
+	}
+
+	public void setPlayerName(String player) {
+		mPlayerName.setText(player);
+	}
+	
+	public void onAuthToken(final String pAuthToken, final int pScore) {
+		mNetwork.sendMatch(pAuthToken, pScore, this);
+	}
+
+	public void onNewPlayer() {
+		if(mStore.hasPlayerName()) { 
+			mPlayerName.setText(mStore.getPlayerName());
+		} else {
+			mPlayerName.setText("Player");
+		}
+	}
+	
+	public void uploadScore(final int score) {
+		String pUsername = mStore.getPlayerName();
+		String pPassword = mStore.getPassword();
+		
+		mNetwork.getAuthToken(pUsername, pPassword, score, this);
 	}
 }

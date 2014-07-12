@@ -11,6 +11,7 @@ public class LocalStore {
 	public static final String PLAYER_KEY = "playerName";
 	public static final String BESTSCORE_KEY = "bestScore";
 	public static final String MUTE_KEY = "defaultMute";
+	public static final String PW_KEY = "password";
 	
 	// Defaults
 	public static final int BESTSCORE_DEFAULT = 0;
@@ -48,6 +49,16 @@ public class LocalStore {
 	public void putBestScore(int score) {
 		SharedPreferences.Editor editor = mSettings.edit();
 		editor.putInt(BESTSCORE_KEY, score);
+		editor.commit();
+	}
+	
+	public String getPassword() {
+		return mSettings.getString(PW_KEY, "");
+	}
+	
+	public void putPassword(String pKey) {
+		SharedPreferences.Editor editor = mSettings.edit();
+		editor.putString(PW_KEY, pKey);
 		editor.commit();
 	}
 	

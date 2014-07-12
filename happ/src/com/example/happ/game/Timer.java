@@ -46,7 +46,7 @@ public class Timer {
 	 */
 	public Timer(GameFragment fragment, View root) {
 		mSemaphore = new Semaphore(1);
-		mCounter = (TextView) root.findViewById(R.id.timecounter);
+		mCounter = (TextView) root.findViewById(R.id.timeCounter);
 		mBar = (ImageView) root.findViewById(R.id.timebar);
 		mParent = fragment;
 	}

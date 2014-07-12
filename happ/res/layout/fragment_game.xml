@@ -55,7 +55,7 @@
                        android:orientation="vertical" >
 
                        <TextView
-                           android:id="@+id/timecounter"
+                           android:id="@+id/timeCounter"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:layout_gravity="right"

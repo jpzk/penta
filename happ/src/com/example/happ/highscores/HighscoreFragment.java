@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -49,8 +50,10 @@ public class HighscoreFragment extends Fragment {
 		initBackButton(root);
 	
 		// Load the first page of highscores
-		ArrayList<Highscore> page = mNetwork.getHighscorePage(0);
-		ListAdapter adapter = new HighscoreAdapter(getActivity(), page);
+		ListAdapter adapter = new HighscoreAdapter(getActivity());
+		
+		// Async
+		mNetwork.getHighscorePage(0, (ArrayAdapter<Highscore>) adapter);
 		
 		ListView lv = (ListView) root.findViewById(R.id.highscore_list);
 		lv.setAdapter(adapter);

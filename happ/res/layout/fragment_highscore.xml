@@ -15,7 +15,6 @@
         android:id="@+id/highscore_player"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="1"
         android:orientation="vertical"
         android:paddingLeft="30dp"
         android:paddingRight="20dp" >

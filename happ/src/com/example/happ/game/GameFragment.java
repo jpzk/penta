@@ -71,8 +71,16 @@ public class GameFragment extends Fragment {
 		int resId = R.layout.fragment_game;
 		View root = inflater.inflate(resId, container, false);
 
+		// Get Playername
+		String playerName;
+		if(mStore.hasPlayerName()) {
+			playerName = mStore.getPlayerName();
+		} else {
+			playerName = new String("player");
+		}
+		
 		// Initialize components;
-		mScorer = new Scorer(root);
+		mScorer = new Scorer(root, mNetwork, mStore);
 		mIOBar = new IOBar(this, root);
 		mNumpad = new Numpad(this, root);
 		mTimer = new Timer(this, root);
@@ -156,17 +164,20 @@ public class GameFragment extends Fragment {
 		
 		// Update the best score.
 		int score = mScorer.getScore();
+		
+		if(mNetwork.isOnline() && mStore.hasPlayerName()) {
+			mScorer.uploadScore(score);
+		}
+		
 		if(score > mScorer.getBestScore()) {
 			mScorer.setBestScore(score);
 			mStore.putBestScore(score);
 		}
 		
-		// If not registered switch to register fragment
-		NetworkManager network = mActivity.getNetworkManager();
-		if(network.isOnline()) {
-			mActivity.changeToRegister();
-		}
-		
 		initMatch();
+	}
+	
+	public void onNewPlayer() {
+		mScorer.onNewPlayer();
 	}
 }

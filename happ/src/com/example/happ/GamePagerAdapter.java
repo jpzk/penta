@@ -37,6 +37,10 @@ public class GamePagerAdapter extends FragmentStatePagerAdapter {
     	}
     }
 
+    public void onNewPlayer() {
+    	mGameFragment.onNewPlayer();
+    }
+    
     @Override
     public int getCount() {
         return 3;

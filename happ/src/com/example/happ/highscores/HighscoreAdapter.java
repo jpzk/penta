@@ -1,7 +1,5 @@
 package com.example.happ.highscores;
 
-import java.util.ArrayList;
-
 import com.example.happ.R;
 
 import android.content.Context;
@@ -13,8 +11,8 @@ import android.widget.TextView;
 
 public class HighscoreAdapter extends ArrayAdapter<Highscore> {
 
-	public HighscoreAdapter(Context context, ArrayList<Highscore> entries) {
-		super(context, 0, entries);
+	public HighscoreAdapter(Context context) {
+		super(context, 0);
 	}
 	
 	@Override

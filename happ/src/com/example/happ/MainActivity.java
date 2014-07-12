@@ -105,4 +105,8 @@ public class MainActivity extends FragmentActivity {
 		this.mSoundManager.stopSound();
 	}
 
+	public void onNewPlayer() {
+		mPagerAdapter.onNewPlayer();
+	}
+
 }
