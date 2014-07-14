@@ -48,9 +48,12 @@ public class MainActivity extends FragmentActivity {
 		
 		setContentView(R.layout.activity_main);
 
+		// Initialize local storage
+		this.mStore = new LocalStore(this);
+		
 		// Initialize SoundManager
 		this.mSoundManager = new SoundManager(getApplicationContext(),
-				getAssets());
+				getAssets(), mStore);
 		try {
 			this.mSoundManager.load();
 		} catch (IOException e) {
@@ -58,9 +61,6 @@ public class MainActivity extends FragmentActivity {
 		} // load sound, pool etc.
 		
 		this.mSoundManager.startSound(); // start thread
-		
-		// Initialize local storage
-		this.mStore = new LocalStore(this);
 		
 		// Initialize the network manager
 		this.mNetwork = new NetworkManager(this);
@@ -108,5 +108,4 @@ public class MainActivity extends FragmentActivity {
 	public void onNewPlayer() {
 		mPagerAdapter.onNewPlayer();
 	}
-
 }

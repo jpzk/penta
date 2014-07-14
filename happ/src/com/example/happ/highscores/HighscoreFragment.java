@@ -21,10 +21,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class HighscoreFragment extends Fragment {
 
 	private static final String TAG = "HighscoreFragment";
+	
+	// UI Elements
+	private TextView mRank, mPlayerName, mBestScore;
 	
 	// Activiy
 	private MainActivity mActivity;
@@ -34,6 +38,10 @@ public class HighscoreFragment extends Fragment {
 	
 	// Network Manager
 	private NetworkManager mNetwork;
+	private HighscoreAdapter mAdapter;
+	
+	// Store
+	private LocalStore mStore;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,20 +52,25 @@ public class HighscoreFragment extends Fragment {
 		// Reference the sound manager, local store
 		mSoundManager = mActivity.getSoundManger();
 		mNetwork = mActivity.getNetworkManager();
+		mStore = mActivity.getLocalStore();
 		
 		// Inflate the view
 		View root = inflater.inflate(R.layout.fragment_highscore, container, false);
 		initBackButton(root);
 	
-		// Load the first page of highscores
-		ListAdapter adapter = new HighscoreAdapter(getActivity());
+		mRank = (TextView) root.findViewById(R.id.myrank);
+		mPlayerName = (TextView) root.findViewById(R.id.myName);
+		mBestScore = (TextView) root.findViewById(R.id.myBestscore);
+		
+		// Set the List Adapter
+		mAdapter = new HighscoreAdapter(getActivity());
+		ListView lv = (ListView) root.findViewById(R.id.highscore_list);
+		lv.setAdapter(mAdapter);
 		
 		// Async
-		mNetwork.getHighscorePage(0, (ArrayAdapter<Highscore>) adapter);
-		
-		ListView lv = (ListView) root.findViewById(R.id.highscore_list);
-		lv.setAdapter(adapter);
-		
+		getHighscorePage(0);
+		getHighscore();
+	
 		return root;
 	}
 	
@@ -69,5 +82,44 @@ public class HighscoreFragment extends Fragment {
 				((MainActivity) getActivity()).changeToGame();
 			}
 		});
+	}
+	
+	public void getHighscorePage(int pPage) {
+		if(mNetwork.isOnline()) {
+			mNetwork.getHighscorePage(pPage, this);
+		} else {
+			return;
+		}
+	}
+
+	public void getHighscore() {
+		String username = mStore.getPlayerName();
+		String password = mStore.getPassword();
+		mNetwork.getAuthTokenH(username, password, this);
+	}
+	
+	public void onAuthToken(String pAuthToken) {
+		mNetwork.getHighscore(pAuthToken, this);
+	}
+	
+	public void onPageResult(final ArrayList<Highscore> scores) {
+		mAdapter.clear();
+		mAdapter.addAll(scores);
+	}
+	
+	public void onHighscoreResult(int score, int rank) {
+		mPlayerName.setText(mStore.getPlayerName());
+		mRank.setText(String.valueOf(rank));
+		mBestScore.setText(String.valueOf(score));
+	}
+
+	public void onNewPlayer() {
+		return;
+	}
+
+	public void onEndOfMatch() {
+		this.getHighscorePage(0);
+		this.getHighscore();
+		return;
 	}
 }

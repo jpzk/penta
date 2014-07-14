@@ -22,9 +22,11 @@ public class HighscoreAdapter extends ArrayAdapter<Highscore> {
 	    	convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_highscore, parent, false);
 	    }
 	    
+	    TextView rankv = (TextView) convertView.findViewById(R.id.tvRank);
 	    TextView playerv = (TextView) convertView.findViewById(R.id.tvPlayer);
 	    TextView scorev = (TextView) convertView.findViewById(R.id.tvHighscore);
 	    
+	    rankv.setText(String.valueOf(position));
 	    playerv.setText(score.player);
 	    scorev.setText(score.score);
 		

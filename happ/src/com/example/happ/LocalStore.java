@@ -75,4 +75,10 @@ public class LocalStore {
 		editor.putString(PLAYER_KEY, pPlayerName);
 		editor.commit();
 	}
+
+	public void putDefaultMute(boolean mute) {
+		SharedPreferences.Editor editor = mSettings.edit();
+		editor.putBoolean(MUTE_KEY, mute);
+		editor.commit();
+	}
 }

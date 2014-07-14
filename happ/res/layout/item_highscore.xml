@@ -5,9 +5,18 @@
     android:orientation="horizontal" >
     
     <TextView
+        android:id="@+id/tvRank"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:text="Rank"
+        android:textColor="#FFF"
+        android:textSize="20sp" />
+    
+    <TextView
         android:id="@+id/tvPlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_weight="1"
         android:text="Player"
         android:textColor="#FFF"
@@ -15,8 +24,8 @@
 
    <TextView
        android:id="@+id/tvHighscore"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
        android:layout_weight="1"
        android:text="Score"
        android:textColor="#FFF"

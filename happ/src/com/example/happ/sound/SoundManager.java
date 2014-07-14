@@ -2,6 +2,8 @@ package com.example.happ.sound;
 
 import java.io.IOException;
 
+import com.example.happ.LocalStore;
+
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
@@ -18,11 +20,20 @@ public class SoundManager {
 	private int onClick, onFail, onSuccess;
 	private Context context;
 
-	public SoundManager(Context context, AssetManager manager) {
+	private LocalStore mStore;
+	
+	public SoundManager(Context context, AssetManager manager, LocalStore store) {
 		this.context = context;
 		this.manager = manager;
-		this.mute = false;
-		this.volume = 0.5f;
+		this.mute = store.getDefaultMute();
+		this.mStore = store;
+		
+		if(this.mute) {
+			this.mute();
+		} else {
+			this.unmute();
+		}
+		
 	}
 
 	public void load() throws IOException {
@@ -57,11 +68,13 @@ public class SoundManager {
 	public void mute() {
 		this.mute = true;
 		this.volume = 0.0f;
+		this.mStore.putDefaultMute(true);
 	}
 	
 	public void unmute() {
 		this.mute = false;
 		this.volume = 1.0f;
+		this.mStore.putDefaultMute(false);
 	}
 	
 	public void stopSound() {
