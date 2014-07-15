@@ -54,7 +54,6 @@ public class Numpad {
 						mSoundManager.playClick();
 						ImageButton buttonClicked = (ImageButton) v;
 						Integer number = (Integer) buttonClicked.getTag();
-						
 						mParent.writeNumber(number);
 					}
 				});

@@ -30,6 +30,7 @@ public class Sidebar {
 		
 		// Mute button
 		muteButton = (ImageButton) root.findViewById(R.id.mute_btn);
+		
 		if(!mSoundManager.getMuteState()) {
 			Drawable sound = mRes.getDrawable(R.drawable.sound);
 			muteButton.setImageDrawable(sound);

@@ -75,6 +75,7 @@
 
         <ImageButton
             android:id="@+id/highscore_btn"
+            android:soundEffectsEnabled="false"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
