@@ -11,6 +11,7 @@
     android:paddingLeft="40dp"
     android:paddingRight="40dp"
     android:paddingTop="20dp"
+    android:showDividers="none"
     tools:context="com.example.happ.MainActivity$PlaceholderFragment"
     tools:ignore="Deprecated,ContentDescription" >
 
@@ -228,18 +229,11 @@
             android:id="@+id/highscore_list"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="1" >
-        </ListView>
+            android:layout_weight="1"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false" >
 
-        <ImageButton
-            android:id="@+id/highscore_btn"
-            android:soundEffectsEnabled="false"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            android:scaleType="fitCenter"
-            android:src="@drawable/newgame" />
+        </ListView>
     </LinearLayout>
     
 </LinearLayout>

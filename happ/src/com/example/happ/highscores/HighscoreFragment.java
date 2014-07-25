@@ -56,7 +56,6 @@ public class HighscoreFragment extends Fragment {
 		
 		// Inflate the view
 		View root = inflater.inflate(R.layout.fragment_highscore, container, false);
-		initBackButton(root);
 	
 		mRank = (TextView) root.findViewById(R.id.myrank);
 		mPlayerName = (TextView) root.findViewById(R.id.myName);
@@ -66,22 +65,13 @@ public class HighscoreFragment extends Fragment {
 		mAdapter = new HighscoreAdapter(getActivity());
 		ListView lv = (ListView) root.findViewById(R.id.highscore_list);
 		lv.setAdapter(mAdapter);
+		lv.setDivider(null);
 		
 		// Async
 		getHighscorePage(0);
 		getHighscore();
 	
 		return root;
-	}
-	
-	private void initBackButton(View root) {
-		ImageButton btn = (ImageButton) root.findViewById(R.id.highscore_btn);
-		btn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				((MainActivity) getActivity()).changeToGame();
-			}
-		});
 	}
 	
 	public void getHighscorePage(int pPage) {

@@ -50,6 +50,20 @@ public class GameFragment extends Fragment {
 	public GameFragment() {
 	}
 
+	@Override
+	public void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		endMatch();
+	}
+	
+	@Override
+	public void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		endMatch();
+	}
+
 	/**
 	 * Called when the Fragment view is created.
 	 */

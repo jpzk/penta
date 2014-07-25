@@ -43,7 +43,9 @@ public class Sidebar {
 		muteButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				mSoundManager.playSystemClick();
 				boolean state = mSoundManager.muteunmute();
+				mSoundManager.playSystemClick();
 				if(!state) {
 					Drawable sound = mRes.getDrawable(R.drawable.sound);
 					muteButton.setImageDrawable(sound);
@@ -59,6 +61,7 @@ public class Sidebar {
 		initGameBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				mSoundManager.playSystemClick();
 				mParent.endMatch();
 			}
 		});
@@ -68,6 +71,7 @@ public class Sidebar {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				mSoundManager.playSystemClick();
 				mParent.endMatch();
 				((MainActivity) mParent.getActivity()).changeToHighscore();
 			}

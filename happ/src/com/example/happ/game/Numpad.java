@@ -43,7 +43,7 @@ public class Numpad {
 			// Each button
 			for (int k = 0; k < btnsInRow; k++) {
 				ImageButton btn = (ImageButton) numpadRow.getChildAt(k);
-				Drawable image = getNumberDrawable(number, 1);
+				Drawable image = getNumberDrawable(number);
 				btn.setTag(number); // for onClickListener
 				btn.setImageDrawable(image);
 				
@@ -69,9 +69,8 @@ public class Numpad {
 	 * @param type
 	 * @return
 	 */
-	private Drawable getNumberDrawable(int number, int type) {
-		String fieldName = "@drawable/n" + String.valueOf(number) + "_"
-				+ String.valueOf(type);
+	private Drawable getNumberDrawable(int number) {
+		String fieldName = "@drawable/n" + String.valueOf(number);
 		
 		String pkgName = mParent.getActivity().getPackageName();
 		int identifier = mRes.getIdentifier(fieldName, null, pkgName);

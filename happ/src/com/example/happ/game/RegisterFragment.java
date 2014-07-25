@@ -110,6 +110,8 @@ public class RegisterFragment extends Fragment {
 			mActivity.changeToGame();
 		}
 
+		mPlayerEditText.setEnabled(false);
+		
 		return root;
 	}
 	

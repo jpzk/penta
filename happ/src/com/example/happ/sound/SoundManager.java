@@ -17,7 +17,7 @@ public class SoundManager {
 	private SoundThread st;
 	private SoundPool pool;
 	private AssetManager manager;
-	private int onClick, onFail, onSuccess;
+	private int onClick, onFail, onSuccess, onSystemClick;
 	private Context context;
 
 	private LocalStore mStore;
@@ -42,14 +42,17 @@ public class SoundManager {
 		this.pool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
 		this.st = new SoundThread(this.pool);
 		
-		sfd = this.manager.openFd("digitpressed.mp3");
+		sfd = this.manager.openFd("digitsbase.mp3");
 		this.onClick = this.pool.load(sfd, 1);
 
-		sfd = this.manager.openFd("fail.mp3");
+		sfd = this.manager.openFd("s_failure3.mp3");
 		this.onFail = this.pool.load(sfd, 1);
 		
-		sfd = this.manager.openFd("success.mp3");
+		sfd = this.manager.openFd("success12.mp3");
 		this.onSuccess = this.pool.load(sfd, 1);
+		
+		sfd = this.manager.openFd("b1.mp3");
+		this.onSystemClick = this.pool.load(sfd, 1);
 	}
 
 	public boolean muteunmute() {
@@ -88,6 +91,10 @@ public class SoundManager {
 	
 	public void playClick() {
 		this.st.sounds.add(new SoundItem(this.onClick, this.volume));
+	}
+	
+	public void playSystemClick() {
+		this.st.sounds.add(new SoundItem(this.onSystemClick, this.volume));
 	}
 	
 	public void playSuccess() {

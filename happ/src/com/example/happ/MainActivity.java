@@ -2,8 +2,6 @@ package com.example.happ;
 
 import java.io.IOException;
 
-import com.example.happ.game.GameFragment;
-import com.example.happ.highscores.HighscoreFragment;
 import com.example.happ.network.NetworkManager;
 import com.example.happ.sound.SoundManager;
 
@@ -15,11 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class MainActivity extends FragmentActivity {
-
-	// Game UI
-	GameFragment mGameFragment;
-	HighscoreFragment mHighscoreFragment;
-
+	
 	// Network
 	NetworkManager mNetwork;
 	
@@ -71,6 +65,11 @@ public class MainActivity extends FragmentActivity {
         mPagerAdapter = new GamePagerAdapter(fm, this.mSoundManager);
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mPagerAdapter);
+	}
+	
+	@Override
+	public void onBackPressed() {
+		changeToGame();
 	}
 	
 	public void changeToRegister() {

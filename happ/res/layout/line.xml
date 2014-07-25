@@ -8,11 +8,10 @@
     <ImageView
         android:id="@+id/indicator"
         android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:paddingRight="2dp"
         android:scaleType="fitXY"
-        android:src="@drawable/circle" />
+        android:src="@drawable/dot" />
 
     <include
         android:layout_width="fill_parent"
