@@ -1,8 +1,8 @@
-package com.example.happ.game;
+package com.example.penta.game;
 
-import com.example.happ.R;
-import com.example.happ.MainActivity;
-import com.example.happ.sound.SoundManager;
+import com.example.penta.R;
+import com.example.penta.MainActivity;
+import com.example.penta.sound.SoundManager;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;

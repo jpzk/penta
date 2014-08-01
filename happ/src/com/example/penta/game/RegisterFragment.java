@@ -1,4 +1,4 @@
-package com.example.happ.game;
+package com.example.penta.game;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,11 +16,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-import com.example.happ.LocalStore;
-import com.example.happ.MainActivity;
-import com.example.happ.R;
-import com.example.happ.network.NetworkManager;
-import com.example.happ.sound.SoundManager;
+import com.example.penta.R;
+import com.example.penta.LocalStore;
+import com.example.penta.MainActivity;
+import com.example.penta.network.NetworkManager;
+import com.example.penta.sound.SoundManager;
 
 public class RegisterFragment extends Fragment {
 

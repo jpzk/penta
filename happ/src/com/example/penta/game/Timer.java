@@ -1,10 +1,10 @@
-package com.example.happ.game;
+package com.example.penta.game;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-import com.example.happ.R;
+import com.example.penta.R;
 
 import android.util.Log;
 import android.view.View;

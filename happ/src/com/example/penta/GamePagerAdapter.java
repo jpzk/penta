@@ -1,13 +1,13 @@
-package com.example.happ;
+package com.example.penta;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.happ.game.GameFragment;
-import com.example.happ.game.RegisterFragment;
-import com.example.happ.highscores.HighscoreFragment;
-import com.example.happ.sound.SoundManager;
+import com.example.penta.game.GameFragment;
+import com.example.penta.game.RegisterFragment;
+import com.example.penta.highscores.HighscoreFragment;
+import com.example.penta.sound.SoundManager;
 
 public class GamePagerAdapter extends FragmentStatePagerAdapter {
 	

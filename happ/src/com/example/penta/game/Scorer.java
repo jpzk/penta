@@ -1,8 +1,8 @@
-package com.example.happ.game;
+package com.example.penta.game;
 
-import com.example.happ.LocalStore;
-import com.example.happ.R;
-import com.example.happ.network.NetworkManager;
+import com.example.penta.R;
+import com.example.penta.LocalStore;
+import com.example.penta.network.NetworkManager;
 
 import android.view.View;
 import android.widget.TextView;

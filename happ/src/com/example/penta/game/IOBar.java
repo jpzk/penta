@@ -1,9 +1,9 @@
-package com.example.happ.game;
+package com.example.penta.game;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.happ.R;
+import com.example.penta.R;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;

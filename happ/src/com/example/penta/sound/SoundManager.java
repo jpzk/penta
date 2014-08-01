@@ -1,8 +1,8 @@
-package com.example.happ.sound;
+package com.example.penta.sound;
 
 import java.io.IOException;
 
-import com.example.happ.LocalStore;
+import com.example.penta.LocalStore;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;

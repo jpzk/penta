@@ -1,4 +1,4 @@
-package com.example.happ;
+package com.example.penta;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

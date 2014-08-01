@@ -1,4 +1,4 @@
-package com.example.happ.network;
+package com.example.penta.network;
 
 import com.loopj.android.http.*;
 
@@ -11,13 +11,13 @@ import java.util.Queue;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 
-import com.example.happ.LocalStore;
-import com.example.happ.MainActivity;
-import com.example.happ.game.GameFragment;
-import com.example.happ.game.RegisterFragment;
-import com.example.happ.game.Scorer;
-import com.example.happ.highscores.Highscore;
-import com.example.happ.highscores.HighscoreFragment;
+import com.example.penta.LocalStore;
+import com.example.penta.MainActivity;
+import com.example.penta.game.GameFragment;
+import com.example.penta.game.RegisterFragment;
+import com.example.penta.game.Scorer;
+import com.example.penta.highscores.Highscore;
+import com.example.penta.highscores.HighscoreFragment;
 
 import android.app.Activity;
 import android.content.Context;

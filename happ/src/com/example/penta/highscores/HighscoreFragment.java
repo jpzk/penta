@@ -1,15 +1,15 @@
-package com.example.happ.highscores;
+package com.example.penta.highscores;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.happ.LocalStore;
-import com.example.happ.R;
-import com.example.happ.MainActivity;
-import com.example.happ.highscores.Highscore;
-import com.example.happ.highscores.HighscoreAdapter;
-import com.example.happ.network.NetworkManager;
-import com.example.happ.sound.SoundManager;
+import com.example.penta.R;
+import com.example.penta.LocalStore;
+import com.example.penta.MainActivity;
+import com.example.penta.highscores.Highscore;
+import com.example.penta.highscores.HighscoreAdapter;
+import com.example.penta.network.NetworkManager;
+import com.example.penta.sound.SoundManager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

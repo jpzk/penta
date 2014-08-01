@@ -1,4 +1,4 @@
-package com.example.happ.highscores;
+package com.example.penta.highscores;
 
 import java.util.ArrayList;
 

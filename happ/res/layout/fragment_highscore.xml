@@ -12,7 +12,7 @@
     android:paddingRight="40dp"
     android:paddingTop="20dp"
     android:showDividers="none"
-    tools:context="com.example.happ.MainActivity$PlaceholderFragment"
+    tools:context="com.example.penta.MainActivity$PlaceholderFragment"
     tools:ignore="Deprecated,ContentDescription" >
 
     <LinearLayout

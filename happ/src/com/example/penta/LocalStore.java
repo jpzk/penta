@@ -1,4 +1,4 @@
-package com.example.happ;
+package com.example.penta;
 
 import android.app.Activity;
 import android.content.SharedPreferences;

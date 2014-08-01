@@ -1,6 +1,6 @@
-package com.example.happ.highscores;
+package com.example.penta.highscores;
 
-import com.example.happ.R;
+import com.example.penta.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;
