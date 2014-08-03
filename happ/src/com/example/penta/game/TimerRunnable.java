@@ -8,6 +8,8 @@ public class TimerRunnable implements Runnable {
 	private Timer mTimer;
 	private long mLastRealtime = 0;
 	private long mElapsedRealtime = 0;
+	private float begin = 9000.0f;
+	private float end = 10000.0f;
 	
 	private static final String TAG = "TimerRunnable";
 	
@@ -28,8 +30,22 @@ public class TimerRunnable implements Runnable {
 		
 		now = SystemClock.elapsedRealtime();
 		mElapsedRealtime = now - mLastRealtime;
-		mTimer.setTimeBudget(mTimer.getTimeBudget() - mElapsedRealtime);
+		float timeBudget = mTimer.getTimeBudget() - mElapsedRealtime;
+		mTimer.setTimeBudget(timeBudget);
 		mTimer.updateUISignal();
+		
+		// if time budget is out of critical time
+		if(timeBudget > 10000.0f) {
+			begin = 9000.0f;
+			end = 10000.0f;
+		}
+		
+		if(begin < timeBudget && timeBudget < end) {
+			mTimer.playTickSound();
+			begin -= 1000.0f;
+			end -= 1000.0f;
+		}
+		
 		mLastRealtime = SystemClock.elapsedRealtime();
 	}
 	

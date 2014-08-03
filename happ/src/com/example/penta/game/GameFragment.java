@@ -97,7 +97,7 @@ public class GameFragment extends Fragment {
 		mScorer = new Scorer(root, mNetwork, mStore);
 		mIOBar = new IOBar(this, root);
 		mNumpad = new Numpad(this, root);
-		mTimer = new Timer(this, root);
+		mTimer = new Timer(this, mSoundManager, root);
 		mSidebar = new Sidebar(this, root);
 		
 		// Set the best score.

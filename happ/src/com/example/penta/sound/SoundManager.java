@@ -17,7 +17,7 @@ public class SoundManager {
 	private SoundThread st;
 	private SoundPool pool;
 	private AssetManager manager;
-	private int onClick, onFail, onSuccess, onSystemClick;
+	private int onClick, onFail, onSuccess, onSystemClick, onTick, onTimeOut;
 	private Context context;
 
 	private LocalStore mStore;
@@ -53,6 +53,13 @@ public class SoundManager {
 		
 		sfd = this.manager.openFd("b1.mp3");
 		this.onSystemClick = this.pool.load(sfd, 1);
+		
+		sfd = this.manager.openFd("s_timer3.mp3");
+		this.onTick = this.pool.load(sfd, 1);
+		
+		sfd = this.manager.openFd("s_timeout4.mp3");
+		this.onTimeOut = this.pool.load(sfd, 1);
+		
 	}
 
 	public boolean muteunmute() {
@@ -83,6 +90,14 @@ public class SoundManager {
 	public void stopSound() {
 		this.st.sounds.add(new SoundItem(true)); // sending kill event
 		this.pool.release(); 
+	}
+	
+	public void playTick() {
+		this.st.sounds.add(new SoundItem(this.onTick, this.volume));
+	}
+	
+	public void playTimeOut() {
+		this.st.sounds.add(new SoundItem(this.onTimeOut, this.volume));
 	}
 	
 	public void startSound() {

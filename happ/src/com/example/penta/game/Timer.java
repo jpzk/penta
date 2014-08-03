@@ -5,6 +5,7 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import com.example.penta.R;
+import com.example.penta.sound.SoundManager;
 
 import android.util.Log;
 import android.view.View;
@@ -31,12 +32,15 @@ public class Timer {
 	private final Semaphore mSemaphore;
 	
 	// Time per Match
-	private float mTimePerMatch = 90.0f * 1000.0f;
+	private float mTimePerMatch = 10.0f * 1000.0f;
 	private float mTimeBudgetCap = mTimePerMatch;
 	private float mTimeBudgetAdd = 20.0f * 1000.0f;
 	private long mTimeBudgetClock = 100;
 	private float mTimeBudget = mTimePerMatch;
 	private TimeUnit unit = TimeUnit.MILLISECONDS;
+	
+	// Sound Manager
+	private SoundManager mSoundManager;
 	
 	/**
 	 * 
@@ -44,10 +48,11 @@ public class Timer {
 	 * @param fragment
 	 * @param root
 	 */
-	public Timer(GameFragment fragment, View root) {
+	public Timer(GameFragment fragment, SoundManager pSoundManager, View root) {
 		mSemaphore = new Semaphore(1);
 		mCounter = (TextView) root.findViewById(R.id.timeCounter);
 		mBar = (ImageView) root.findViewById(R.id.timebar);
+		mSoundManager = pSoundManager;
 		mParent = fragment;
 	}
 	
@@ -143,6 +148,7 @@ public class Timer {
 	}
 	
 	public void endMatchSignal() {
+		playTimeOutSound();
 		mParent.getActivity().runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
@@ -153,5 +159,13 @@ public class Timer {
 	
 	public boolean isMeasuring() {
 		return isMeasuring;
+	}
+
+	public void playTickSound() {
+		mSoundManager.playTick();
+	}
+	
+	public void playTimeOutSound() {
+		mSoundManager.playTimeOut();
 	}
 }
