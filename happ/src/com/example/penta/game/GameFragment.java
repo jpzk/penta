@@ -132,6 +132,8 @@ public class GameFragment extends Fragment {
 			boolean success = game.performCheck(guess);
 			if (success) {
 				mSoundManager.playSuccess();
+				List<Integer> mask = game.getHint(guess);
+				mIOBar.showHint(guess, mask);
 				mIOBar.prepareNext();
 				mTimer.increaseTimeBudgetCap();
 				mScorer.incrementScore();

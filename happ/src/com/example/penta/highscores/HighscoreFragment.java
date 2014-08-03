@@ -19,6 +19,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -67,10 +68,17 @@ public class HighscoreFragment extends Fragment {
 		lv.setAdapter(mAdapter);
 		lv.setDivider(null);
 		
+		if(mStore.hasPlayerName()) {
+			getHighscore();
+		} else {
+			// Check if player set otherwise dont show ranking layout
+			LinearLayout ownRanking = (LinearLayout) root.findViewById(R.id.own_ranking);
+			ownRanking.setVisibility(View.GONE);
+		}
+		
 		// Async
 		getHighscorePage(0);
-		getHighscore();
-	
+		
 		return root;
 	}
 	

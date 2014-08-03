@@ -26,7 +26,8 @@ public class HighscoreAdapter extends ArrayAdapter<Highscore> {
 	    TextView playerv = (TextView) convertView.findViewById(R.id.tvPlayer);
 	    TextView scorev = (TextView) convertView.findViewById(R.id.tvHighscore);
 	    
-	    rankv.setText(String.valueOf(position));
+	    // Rank is off by one.
+	    rankv.setText(String.valueOf(position + 1));
 	    playerv.setText(score.player);
 	    scorev.setText(score.score);
 		

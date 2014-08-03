@@ -7,14 +7,17 @@
     android:background="@drawable/box2"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingBottom="20dp"
-    android:paddingLeft="40dp"
-    android:paddingRight="40dp"
-    android:paddingTop="20dp"
+    android:padding="40dp"
     android:showDividers="none"
     tools:context="com.example.penta.MainActivity$PlaceholderFragment"
     tools:ignore="Deprecated,ContentDescription" >
 
+    <LinearLayout
+        android:id="@+id/own_ranking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -134,7 +137,10 @@
 
 </LinearLayout>
     
-        <LinearLayout
+
+    </LinearLayout>
+      
+            <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp" >
@@ -154,7 +160,7 @@
                 android:textColor="#000" />
 
             <ImageView
-                android:id="@+id/baken"
+                android:id="@+id/balken"
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:scaleType="fitXY"
@@ -183,10 +189,8 @@
                 android:src="@drawable/balk2" />
 
         </LinearLayout>
-            
+</LinearLayout>
 
-        </LinearLayout>
-        
             <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -235,5 +239,7 @@
 
         </ListView>
     </LinearLayout>
+
+
     
 </LinearLayout>
