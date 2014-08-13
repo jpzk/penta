@@ -139,6 +139,10 @@ public class MainActivity extends FragmentActivity {
 	public void changeToGame() {
 		mViewPager.setCurrentItem(1);
 	}
+	
+	public void onRegistered() {
+		mPagerAdapter.onRegistered();
+	}
 
 	public void changeToHighscore() {
 		HighscoreFragment frag = (HighscoreFragment) mPagerAdapter.getItem(2);

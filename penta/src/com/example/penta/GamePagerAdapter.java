@@ -42,4 +42,8 @@ public class GamePagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return 3;
     }
+    
+    public void onRegistered() {
+    	mGameFragment.onRegistered();
+    }
 }
