@@ -75,8 +75,6 @@ public class RegisterFragment extends Fragment {
 		mGo = (Button) root.findViewById(R.id.go_btn);
 		mSkip = (Button) root.findViewById(R.id.skip_btn);
 		
-		// Setup of Listeners
-		
 		// Skip button
 		mSkip.setOnClickListener(new OnClickListener() {
 			@Override
@@ -126,5 +124,8 @@ public class RegisterFragment extends Fragment {
 		
 		// Change to the Game Fragment
 		mActivity.changeToGame();	
+		
+		// Update the Player Name
+		mActivity.onRegistered();	
 	}
 }
