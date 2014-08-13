@@ -13,10 +13,12 @@ import com.google.android.gms.ads.AdView;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
 
@@ -145,9 +147,18 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	public void changeToHighscore() {
-		HighscoreFragment frag = (HighscoreFragment) mPagerAdapter.getItem(2);
-		frag.onSwitch();
-		mViewPager.setCurrentItem(2);
+		if(!mNetwork.isOnline()) {
+			Context context = getApplicationContext();
+			CharSequence text = "You have to be online.";
+			int duration = Toast.LENGTH_SHORT;
+
+			Toast toast = Toast.makeText(context, text, duration);
+			toast.show();
+		} else {
+			HighscoreFragment frag = (HighscoreFragment) mPagerAdapter.getItem(2);
+			frag.onSwitch();
+			mViewPager.setCurrentItem(2);
+		}
 	}
 
 	public SoundManager getSoundManger() {
