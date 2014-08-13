@@ -1,8 +1,6 @@
 package com.example.penta.highscores;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import com.example.penta.R;
 import com.example.penta.LocalStore;
 import com.example.penta.MainActivity;
@@ -15,12 +13,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -63,31 +57,24 @@ public class HighscoreFragment extends Fragment {
 		mBestScore = (TextView) root.findViewById(R.id.myBestscore);
 		
 		// Set the List Adapter
-		mAdapter = new HighscoreAdapter(getActivity());
+		mAdapter = new HighscoreAdapter(getActivity(), mNetwork);
 		ListView lv = (ListView) root.findViewById(R.id.highscore_list);
 		lv.setAdapter(mAdapter);
 		lv.setDivider(null);
+		lv.setOnScrollListener(new HighscoreScrollerListener(mAdapter));
 		
-		if(mStore.hasPlayerName()) {
-			getHighscore();
-		} else {
-			// Check if player set otherwise dont show ranking layout
-			LinearLayout ownRanking = (LinearLayout) root.findViewById(R.id.own_ranking);
-			ownRanking.setVisibility(View.GONE);
-		}
-		
-		// Async
-		getHighscorePage(0);
+		if(mNetwork.isOnline()) {
+			if(mStore.hasPlayerName()) {
+				getHighscore();
+				mAdapter.initOverNetwork();
+			} else {
+				// Check if player set otherwise dont show ranking layout
+				LinearLayout ownRanking = (LinearLayout) root.findViewById(R.id.own_ranking);
+				ownRanking.setVisibility(View.GONE);
+			}
+		} 
 		
 		return root;
-	}
-	
-	public void getHighscorePage(int pPage) {
-		if(mNetwork.isOnline()) {
-			mNetwork.getHighscorePage(pPage, this);
-		} else {
-			return;
-		}
 	}
 
 	public void getHighscore() {
@@ -111,13 +98,13 @@ public class HighscoreFragment extends Fragment {
 		mBestScore.setText(String.valueOf(score));
 	}
 
-	public void onNewPlayer() {
-		return;
-	}
-
-	public void onEndOfMatch() {
-		this.getHighscorePage(0);
-		this.getHighscore();
+	public void onSwitch() {
+		if(mNetwork.isOnline()) {
+			this.mAdapter.reloadOverNetwork();
+			if(mStore.hasPlayerName()) {
+				getHighscore();
+			} 
+		}
 		return;
 	}
 }

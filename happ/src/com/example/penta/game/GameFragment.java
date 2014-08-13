@@ -32,6 +32,7 @@ public class GameFragment extends Fragment {
 	private Timer mTimer;
 	private Scorer mScorer;
 	private Sidebar mSidebar;
+	private Help mHelp;
 	
 	// Game logic
 	private Game game;
@@ -84,7 +85,7 @@ public class GameFragment extends Fragment {
 		// Inflate the view
 		int resId = R.layout.fragment_game;
 		View root = inflater.inflate(resId, container, false);
-
+		
 		// Get Playername
 		String playerName;
 		if(mStore.hasPlayerName()) {
@@ -98,7 +99,14 @@ public class GameFragment extends Fragment {
 		mIOBar = new IOBar(this, root);
 		mNumpad = new Numpad(this, root);
 		mTimer = new Timer(this, mSoundManager, root);
-		mSidebar = new Sidebar(this, root);
+		mHelp = new Help(this, root, mIOBar, mSoundManager);
+		mSidebar = new Sidebar(this, root, mIOBar, mHelp);
+
+		// Show help on first play.
+		if(mStore.isFirstPlay()) {
+			mHelp.showHelp();
+			mStore.putFirstPlay(false);
+		}
 		
 		// Set the best score.
 		mScorer.setBestScore(mStore.getBestScore());
@@ -113,6 +121,11 @@ public class GameFragment extends Fragment {
 	 * @param number
 	 */
 	public void writeNumber(int number) {
+		// hide help
+		if(mHelp.isHelpOpen()) {
+			mHelp.hideHelp();
+		}
+		
 		// First try? Start timer if first try
 		if(!started) {
 			if(mTimer.isMeasuring) {

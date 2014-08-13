@@ -3,9 +3,9 @@ package com.example.penta;
 import java.io.IOException;
 
 import com.example.penta.R;
+import com.example.penta.highscores.HighscoreFragment;
 import com.example.penta.network.NetworkManager;
 import com.example.penta.sound.SoundManager;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -16,7 +16,6 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 public class MainActivity extends FragmentActivity {
@@ -38,7 +37,8 @@ public class MainActivity extends FragmentActivity {
 
 	// AdView
 	private AdView mAdView;
-
+	private boolean mAdActive;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,23 +76,27 @@ public class MainActivity extends FragmentActivity {
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mPagerAdapter);
 
-		// Set Ads
-		mAdView = new AdView(this);
-		mAdView.setAdUnitId("ca-app-pub-2989103197995605/5567369774");
-		mAdView.setAdSize(AdSize.SMART_BANNER);
-
-		// Initiate a generic request.
-		AdRequest request = new AdRequest.Builder()
-	    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-	    .addTestDevice("EAC7E252F6AAEFA378521AC1ECE3829B")  // Moto G
-	    .build();
+		mAdActive= false;
 		
-		mAdView.loadAd(request);
-
-		// Lookup your LinearLayout assuming it's been given
-		// the attribute android:id="@+id/mainLayout".
-		LinearLayout layout = (LinearLayout) findViewById(R.id.container);
-		layout.addView(mAdView);
+		if(mAdActive) {
+			// Set Ads
+			mAdView = new AdView(this);
+			mAdView.setAdUnitId("ca-app-pub-2989103197995605/5567369774");
+			mAdView.setAdSize(AdSize.SMART_BANNER);
+	
+			// Initiate a generic request.
+			AdRequest request = new AdRequest.Builder()
+		    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
+		    .addTestDevice("EAC7E252F6AAEFA378521AC1ECE3829B")  // Moto G
+		    .build();
+			
+			mAdView.loadAd(request);
+	
+			// Lookup your LinearLayout assuming it's been given
+			// the attribute android:id="@+id/mainLayout".
+			LinearLayout layout = (LinearLayout) findViewById(R.id.container);
+			layout.addView(mAdView);
+		}
 	}
 
 	// Standard Activity Lifecyle
@@ -100,21 +104,27 @@ public class MainActivity extends FragmentActivity {
 	protected void onDestroy() {
 		super.onDestroy();
 
-		mAdView.destroy();
 		// Stop sound engine
 		this.mSoundManager.stopSound();
+		
+		// Stop advertisement
+		if(mAdActive) {
+			mAdView.destroy();
+		}
 	}
 
 	@Override
 	public void onPause() {
-		mAdView.pause();
 		super.onPause();
+		if(mAdActive) 
+			mAdView.pause();
 	}
 
 	@Override
 	public void onResume() {
-		super.onResume();
-		mAdView.resume();
+		super.onResume();		
+		if(mAdActive) 
+			mAdView.resume();
 	}
 
 	@Override
@@ -131,6 +141,8 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	public void changeToHighscore() {
+		HighscoreFragment frag = (HighscoreFragment) mPagerAdapter.getItem(2);
+		frag.onSwitch();
 		mViewPager.setCurrentItem(2);
 	}
 
@@ -144,9 +156,5 @@ public class MainActivity extends FragmentActivity {
 
 	public NetworkManager getNetworkManager() {
 		return mNetwork;
-	}
-
-	public void onNewPlayer() {
-		mPagerAdapter.onNewPlayer();
 	}
 }

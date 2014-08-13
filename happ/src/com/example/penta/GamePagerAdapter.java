@@ -34,12 +34,8 @@ public class GamePagerAdapter extends FragmentStatePagerAdapter {
     	}
     	else {
     		return mHighscoresFragment;
+    		
     	}
-    }
-
-    public void onNewPlayer() {
-    	mGameFragment.onNewPlayer();
-    	mHighscoresFragment.onNewPlayer();
     }
     
     @Override

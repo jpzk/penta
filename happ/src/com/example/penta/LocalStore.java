@@ -5,18 +5,20 @@ import android.content.SharedPreferences;
 
 public class LocalStore {
 	
-	public static final String PREFS_NAME = "Tanrun";
+	public static final String PREFS_NAME = "Penta4";
 	
 	// Keys
 	public static final String PLAYER_KEY = "playerName";
 	public static final String BESTSCORE_KEY = "bestScore";
 	public static final String MUTE_KEY = "defaultMute";
 	public static final String PW_KEY = "password";
+	public static final String FIRST_PLAY_KEY = "firstplay";
 	
 	// Defaults
 	public static final int BESTSCORE_DEFAULT = 0;
 	public static final String PLAYER_DEFAULT = "player";
 	public static final boolean MUTE_DEFAULT = false;
+	public static final boolean FIRST_PLAY_DEFAULT = true;
 	
 	private SharedPreferences mSettings;
 	
@@ -68,6 +70,19 @@ public class LocalStore {
 	
 	public boolean hasPlayerName() {
 		return mSettings.contains(PLAYER_KEY);
+	}
+	
+	public boolean isFirstPlay() {	
+		if(!mSettings.contains(FIRST_PLAY_KEY)) {
+			return true;
+		}
+		return mSettings.getBoolean(FIRST_PLAY_KEY, false);
+	}
+	
+	public void putFirstPlay(boolean firstPlay) {
+		SharedPreferences.Editor editor = mSettings.edit();
+		editor.putBoolean(FIRST_PLAY_KEY, firstPlay);
+		editor.commit();
 	}
 	
 	public void putPlayerName(String pPlayerName) {

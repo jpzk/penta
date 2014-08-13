@@ -43,66 +43,78 @@
                     android:layout_height="1dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/balk2" />
-
             </LinearLayout>
-            
-                   <LinearLayout
-                       android:layout_width="fill_parent"
-                       android:layout_height="fill_parent"
-                       android:layout_weight="2"
-                       android:orientation="vertical" >
 
-                       <TextView
-                           android:id="@+id/timeCounter"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_gravity="right"
-                           android:layout_weight="1"
-                           android:text="00ms"
-                           android:textAppearance="?android:attr/textAppearanceSmall"
-                           android:textColor="#FFF" />
-
-            <ImageView
-                android:id="@+id/timebar"
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:scaleType="fitXY"
-                android:src="@drawable/balk2" />
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:orientation="vertical" >
 
-        </LinearLayout>
-            
+                <TextView
+                    android:id="@+id/timeCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:text="00ms"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#FFF" />
 
+                <ImageView
+                    android:id="@+id/timebar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/balk2" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/input"
+    <FrameLayout
+        android:id="@+id/input_part"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp" >
+        android:layout_weight="1" >
 
-        <include
-            android:id="@+id/topline_ref"
+        <LinearLayout
+            android:id="@+id/input"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginBottom="1dp"
-            android:layout_weight="1"
-            layout="@layout/line" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" >
 
-        <include
-            android:id="@+id/bottomline_ref"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="1dp"
-            android:layout_weight="1"
-            layout="@layout/line" />
+            <include
+                android:id="@+id/topline_ref"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                layout="@layout/line" />
 
-    </LinearLayout>
+            <include
+                android:id="@+id/bottomline_ref"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1"
+                layout="@layout/line"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/help"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:src="@drawable/manual1"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/score"
@@ -125,33 +137,38 @@
             android:layout_height="fill_parent"
             android:layout_weight="1.0"
             layout="@layout/bestscore" />
-
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/control"
+    <FrameLayout
+        android:id="@+id/control_part"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="1.1"
-        android:paddingLeft="30dp"
-        android:paddingRight="20dp" >
+        android:layout_weight="1.1" >
 
-        <include
-            android:id="@+id/sidebar_ref"
+        <LinearLayout
+            android:id="@+id/control"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_gravity="left"
-            android:layout_weight="4"
-            layout="@layout/sidebar" />
+            android:paddingLeft="30dp"
+            android:paddingRight="20dp" >
 
-        <include
-            android:id="@+id/numpad_ref"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="1"
-            layout="@layout/numpad" />
+            <include
+                android:id="@+id/sidebar_ref"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="left"
+                android:layout_weight="4"
+                layout="@layout/sidebar" />
 
-    </LinearLayout>
+            <include
+                android:id="@+id/numpad_ref"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="1"
+                layout="@layout/numpad" />
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>

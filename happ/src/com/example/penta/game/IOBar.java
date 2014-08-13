@@ -24,6 +24,7 @@ public class IOBar {
 	private int cursor = 0;
 	private List<ImageView> cellsTopView, cellsBottomView;
 	private ImageView topIndicator, bottomIndicator;
+	private List<ViewGroup> rows;
 	
 	/**
 	 * 
@@ -32,6 +33,7 @@ public class IOBar {
 	 */
 	public IOBar(GameFragment fragment, View root) {
 		
+		rows = new ArrayList<ViewGroup>();
 		parent = fragment;
 		res = parent.getResources();
 		
@@ -45,7 +47,11 @@ public class IOBar {
 		// Each line
 		for(int i = 0; i < amountOfRows; i++) {
 			ViewGroup row;
+			
+			rows.add((ViewGroup) ((ViewGroup) lines.getChildAt(i)));
+			
 			row = (ViewGroup) ((ViewGroup) lines.getChildAt(i)).getChildAt(1);
+			
 			// Each cell
 			for(int k = 0; k < cellsInRow; k++) {
 				ImageView cell = (ImageView) row.getChildAt(k);
@@ -162,6 +168,14 @@ public class IOBar {
 		for (ImageView cell : line) {
 			cell.setImageDrawable(res.getDrawable(R.drawable.empty));
 		}
+	}
+	
+	public void hideBottomLine() {
+		this.rows.get(1).setVisibility(View.GONE);
+	}
+	
+	public void showBottomLine() {
+		this.rows.get(1).setVisibility(View.VISIBLE);
 	}
 	
 	/**

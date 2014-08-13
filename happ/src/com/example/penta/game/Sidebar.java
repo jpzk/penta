@@ -3,9 +3,11 @@ package com.example.penta.game;
 import com.example.penta.R;
 import com.example.penta.MainActivity;
 import com.example.penta.sound.SoundManager;
+import com.google.android.gms.internal.mf;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -17,14 +19,18 @@ public class Sidebar {
 	private GameFragment mParent;
 	private SoundManager mSoundManager;
 	private Resources mRes;
+	private Help mHelp;
+	private IOBar mBar;
 	
-	public Sidebar(GameFragment fragment, View root) {	
-	
+	public Sidebar(GameFragment fragment, View root, IOBar pBar, Help pHelp) {	
+
+		mBar = pBar;
 		mParent = fragment;
 		mRes = fragment.getResources();
 		
 		MainActivity activity = ((MainActivity) fragment.getActivity());
 		mSoundManager = activity.getSoundManger();
+		mHelp = pHelp;
 		
 		final ImageButton muteButton;
 		
@@ -56,12 +62,34 @@ public class Sidebar {
 			}
 		});
 		
+		// Help Button
+		ImageButton helpBtn = (ImageButton) root.findViewById(R.id.help_btn);
+		helpBtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mSoundManager.playSystemClick();
+				Log.v("Sidebar", "help button pressed");
+				if(mHelp.isHelpOpen()) {
+					mHelp.hideHelp();
+					mBar.showBottomLine();
+					mParent.endMatch();
+				} else {
+					mParent.endMatch();
+					mHelp.showHelp();
+					mBar.hideBottomLine();
+				}
+			}
+		});
+		
 		// Restart game
 		ImageButton initGameBtn = (ImageButton) root.findViewById(R.id.initGameBtn);
 		initGameBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				mSoundManager.playSystemClick();
+				mParent.endMatch();
+				mHelp.hideHelp();
+				mBar.showBottomLine();
 				mParent.endMatch();
 			}
 		});
@@ -73,6 +101,8 @@ public class Sidebar {
 			public void onClick(View v) {
 				mSoundManager.playSystemClick();
 				mParent.endMatch();
+				mHelp.hideHelp();
+				mBar.showBottomLine();
 				((MainActivity) mParent.getActivity()).changeToHighscore();
 			}
 		});

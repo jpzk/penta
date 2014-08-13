@@ -2,21 +2,12 @@ package com.example.penta.network;
 
 import com.loopj.android.http.*;
 
-import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
-
 import org.apache.http.Header;
-import org.apache.http.HttpResponse;
-
-import com.example.penta.LocalStore;
-import com.example.penta.MainActivity;
-import com.example.penta.game.GameFragment;
 import com.example.penta.game.RegisterFragment;
 import com.example.penta.game.Scorer;
 import com.example.penta.highscores.Highscore;
+import com.example.penta.highscores.HighscoreAdapter;
 import com.example.penta.highscores.HighscoreFragment;
 
 import android.app.Activity;
@@ -24,9 +15,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
-import android.view.WindowManager;
-import android.widget.ArrayAdapter;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -161,6 +149,7 @@ public class NetworkManager {
 		params.put("username", pPlayerName);
 
 		mClient.post(url, params, new JsonHttpResponseHandler() {
+			@Override
 			public void onSuccess(int statusCode, Header[] headers,
 					JSONObject response) {
 
@@ -176,6 +165,7 @@ public class NetworkManager {
 				}
 			}
 
+			@Override
 			public void onFailure(int statusCode, Header[] headers,
 					Throwable throwable, JSONObject response) {
 				if (response.has("error")) {
@@ -235,7 +225,38 @@ public class NetworkManager {
 		return;
 	}
 	
-	public void getHighscorePage(int page, final HighscoreFragment caller) {
+	public void getAmountPages(final HighscoreAdapter mAdapter) {
+
+		Log.v(TAG, "called getAmountPages");	
+		
+		String url = URL + "highscores/";
+		
+		AsyncHttpResponseHandler handler = new AsyncHttpResponseHandler() {
+			@Override
+			public void onFailure(int arg0, Header[] arg1, byte[] arg2,
+					Throwable arg3) {
+				Log.e(TAG, "getAmountPages:" + String.valueOf(arg2));
+			}
+			@Override
+			public void onSuccess(int arg0, Header[] arg1, byte[] json) {
+				Log.v(TAG, String.valueOf(arg0));
+ 				try {
+					JSONObject jsonObject = new JSONObject(new String(json));
+					int pages = jsonObject.getInt("pages");
+					Log.v(TAG, "Got amount of pages:" + String.valueOf(pages));
+					mAdapter.onAmountPagesResult(pages);
+					return;
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		};
+		mClient.get(url, handler);
+		
+	}
+	
+	public void getHighscorePage(int page, final HighscoreAdapter mAdapter) {
 
 		Log.v(TAG, "called getHighscorePage");	
 		
@@ -260,7 +281,7 @@ public class NetworkManager {
 						String score = obj.getString("score");
 						scores.add(new Highscore(name, score));
 					}
-					caller.onPageResult(scores);
+					mAdapter.onPageResult(scores);
 					return;
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block

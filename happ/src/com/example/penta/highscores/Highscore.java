@@ -1,7 +1,5 @@
 package com.example.penta.highscores;
 
-import java.util.ArrayList;
-
 public class Highscore {
 	
 	String player;
