@@ -17,6 +17,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -124,7 +125,7 @@ public class MainActivity extends FragmentActivity {
 
 	@Override
 	public void onResume() {
-		super.onResume();		
+		super.onResume();
 		if(mAdActive) 
 			mAdView.resume();
 	}
