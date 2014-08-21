@@ -206,7 +206,7 @@ public class GameFragment extends Fragment {
 		initMatch();
 	}
 	
-	public void onNewPlayer() {
-		mScorer.onNewPlayer();
+	public void onRegistered() {
+		mScorer.setPlayerName(mStore.getPlayerName());
 	}
 }

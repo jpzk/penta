@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 public class LocalStore {
 	
-	public static final String PREFS_NAME = "Penta4";
+	public static final String PREFS_NAME = "Penta12222";
 	
 	// Keys
 	public static final String PLAYER_KEY = "playerName";
