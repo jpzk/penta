@@ -42,7 +42,6 @@ public class RegisterFragment extends Fragment {
 
 	private View mRoot;
 
-
 	public boolean register() {
 		MainActivity activity = ((MainActivity) getActivity());
 		NetworkManager network = activity.getNetworkManager();
@@ -138,6 +137,10 @@ public class RegisterFragment extends Fragment {
 	    InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
 	    imm.hideSoftInputFromWindow(mPlayerEditText.getWindowToken(), 0);
 		
+	    // Remove the text field 
+		LinearLayout reg = (LinearLayout) mRoot.findViewById(R.id.registration);
+		reg.removeView(mPlayerEditText);
+	    
 		// Change to the Game Fragment
 		mActivity.changeToGame();	
 		
