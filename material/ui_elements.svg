@@ -52,15 +52,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.6257362"
-     inkscape:cx="597.57092"
-     inkscape:cy="900.05285"
+     inkscape:zoom="0.8128681"
+     inkscape:cx="3092.4396"
+     inkscape:cy="-280.95056"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="738"
-     inkscape:window-x="0"
+     inkscape:window-width="681"
+     inkscape:window-height="736"
+     inkscape:window-x="683"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:snap-global="false"
@@ -2913,8 +2913,8 @@
        d="m 2725,1447.0441 0,220 730,0 0,-220 c -147.3508,-1.8185 -334.19,-1.8185 -730,0 z"
        id="rect3266-9-7-8-2-0-0"
        inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-ldpi/manual6.png"
-       inkscape:export-xdpi="159.91446"
-       inkscape:export-ydpi="159.91446"
+       inkscape:export-xdpi="159.98637"
+       inkscape:export-ydpi="159.98637"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
     <path
@@ -2955,7 +2955,7 @@
          x="2782.032"
          y="1540.4005"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto Bold"
-         id="tspan5948-4-3">you earn time</tspan><tspan
+         id="tspan5948-4-3">you earn 10 seconds</tspan><tspan
          sodipodi:role="line"
          x="2782.032"
          y="1611.7439"
@@ -2971,21 +2971,6 @@
          y="1754.4305"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto Bold"
          id="tspan5612-40-5-5-8-7" /></text>
-    <text
-       xml:space="preserve"
-       style="font-size:39.92540359px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b5d9e7;fill-opacity:1;stroke:none;font-family:Abyssinica SIL;-inkscape-font-specification:Abyssinica SIL"
-       x="3124.9255"
-       y="1506.6687"
-       id="text6094-4"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/nuqu/git/tanrun/happ/res/drawable-ldpi/manual6.png"
-       inkscape:export-xdpi="159.91446"
-       inkscape:export-ydpi="159.91446"><tspan
-         sodipodi:role="line"
-         id="tspan6096-1"
-         x="3124.9255"
-         y="1506.6687"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#b5d9e7;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto Bold">+20 s</tspan></text>
     <path
        style="fill:#292929;fill-opacity:1;stroke:#b4d9e8;stroke-width:3.58321786;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        d="m 2727,1739.0441 0,220 730,0 0,-220 c -147.3508,-1.8185 -334.19,-1.8185 -730,0 z"
