@@ -52,9 +52,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.8128681"
-     inkscape:cx="3092.4396"
-     inkscape:cy="-280.95056"
+     inkscape:zoom="1.789595"
+     inkscape:cx="1016.7701"
+     inkscape:cy="201.1551"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1584,7 +1584,7 @@
        height="129.28023"
        x="902.35986"
        y="920.72205"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/sound.png"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-mdpi/sound.png"
        inkscape:export-xdpi="160"
        inkscape:export-ydpi="160" />
     <rect
@@ -1594,12 +1594,12 @@
        height="123.89861"
        x="905.05066"
        y="923.41284"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/sound.png"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-mdpi/sound.png"
        inkscape:export-xdpi="160"
        inkscape:export-ydpi="160" />
     <path
-       style="fill:#b4d9e8;fill-opacity:1;stroke:#b3d7e5;stroke-width:0.39492011;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       d="m 973.11302,943.46374 -23.18723,21.93579 -31.03122,0 0,43.83147 31.22693,0 22.99152,22.4718 z"
+       style="fill:#b4d9e8;fill-opacity:1;stroke:#b3d7e5;stroke-width:0.33055457;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 970.35127,950.54914 -19.40809,18.36061 -25.97363,0 0,36.68765 26.13744,0 19.24428,18.8093 z"
        id="rect4787"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccc"
@@ -1607,8 +1607,8 @@
        inkscape:export-xdpi="160"
        inkscape:export-ydpi="160" />
     <path
-       style="fill:none;stroke:#b4d9e8;stroke-width:5.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 992.56899,942.96541 c 0,0 18.24771,17.20044 18.24771,46.92276 0,32.58533 -16.94428,44.31603 -16.94428,44.31603"
+       style="fill:none;stroke:#b4d9e8;stroke-width:4.73187208;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 991.03124,948.58135 c 0,0 15.69926,14.79823 15.69926,40.36954 0,28.03451 -14.57787,38.12691 -14.57787,38.12691"
        id="path5560"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csc"
@@ -1616,41 +1616,12 @@
        inkscape:export-xdpi="160"
        inkscape:export-ydpi="160" />
     <path
-       style="fill:none;stroke:#b4d9e8;stroke-width:4.18228674;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 983.64941,957.22758 c 0,0 12.39565,11.68426 12.39565,31.87462 0,22.1351 -11.51025,30.1038 -11.51025,30.1038"
+       style="fill:none;stroke:#b4d9e8;stroke-width:3.59819031;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 983.35736,960.85167 c 0,0 10.66448,10.05244 10.66448,27.42302 0,19.04371 -9.90273,25.89951 -9.90273,25.89951"
        id="path5560-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csc"
        inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/sound.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160" />
-    <rect
-       style="fill:#b5d9e7;fill-opacity:1;stroke:none"
-       id="rect3969-7-5"
-       width="129.28023"
-       height="129.28023"
-       x="1046.3599"
-       y="919.72205"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/sound2.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160" />
-    <rect
-       style="fill:#0b2f48;fill-opacity:1;stroke:none"
-       id="rect3969-4-9-1"
-       width="123.89861"
-       height="123.89861"
-       x="1049.0507"
-       y="922.41284"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/sound2.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160" />
-    <path
-       style="fill:#b4d9e8;fill-opacity:1;stroke:#b3d7e5;stroke-width:0.39492011;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       d="m 1117.113,942.46376 -23.1872,21.93579 -31.0312,0 0,43.83145 31.2269,0 22.9915,22.4718 z"
-       id="rect4787-2"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccc"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/sound2.png"
        inkscape:export-xdpi="160"
        inkscape:export-ydpi="160" />
     <g
@@ -2943,32 +2914,32 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ffffff;stroke:#ffffff;stroke-width:0.53505725;font-family:Roboto;-inkscape-font-specification:Roboto Bold">tap to continue</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:57.07468414px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b4d9e8;fill-opacity:1;stroke:none;font-family:Abyssinica SIL;-inkscape-font-specification:Abyssinica SIL"
-       x="2782.032"
-       y="1540.4005"
+       style="font-size:52.8147049px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b4d9e8;fill-opacity:1;stroke:none;font-family:Abyssinica SIL;-inkscape-font-specification:Abyssinica SIL"
+       x="2782.0652"
+       y="1541.6161"
        id="text3268-4-29-1-7-3-7"
        sodipodi:linespacing="125%"
        inkscape:export-filename="/home/nuqu/git/tanrun/happ/res/drawable-ldpi/manual6.png"
        inkscape:export-xdpi="159.91446"
        inkscape:export-ydpi="159.91446"><tspan
          sodipodi:role="line"
-         x="2782.032"
-         y="1540.4005"
+         x="2782.0652"
+         y="1541.6161"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto Bold"
          id="tspan5948-4-3">you earn 10 seconds</tspan><tspan
          sodipodi:role="line"
-         x="2782.032"
-         y="1611.7439"
+         x="2782.0652"
+         y="1607.6344"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto Bold"
          id="tspan6092-5">on each success.</tspan><tspan
          sodipodi:role="line"
-         x="2782.032"
-         y="1683.0873"
+         x="2782.0652"
+         y="1673.6528"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto Bold"
          id="tspan5714-3-4-8-4" /><tspan
          sodipodi:role="line"
-         x="2782.032"
-         y="1754.4305"
+         x="2782.0652"
+         y="1739.6711"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto Bold"
          id="tspan5612-40-5-5-8-7" /></text>
     <path
@@ -3039,5 +3010,34 @@
          y="2042.7129"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto Bold"
          id="tspan5612-40-5-5-6-8" /></text>
+    <rect
+       style="fill:#b5d9e7;fill-opacity:1;stroke:none"
+       id="rect3969-7-0"
+       width="129.28023"
+       height="129.28023"
+       x="1043.4319"
+       y="922.34418"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-mdpi/sound2.png"
+       inkscape:export-xdpi="160"
+       inkscape:export-ydpi="160" />
+    <rect
+       style="fill:#0b2f48;fill-opacity:1;stroke:none"
+       id="rect3969-4-9-1"
+       width="123.89861"
+       height="123.89861"
+       x="1046.1227"
+       y="925.03497"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/sound.png"
+       inkscape:export-xdpi="160"
+       inkscape:export-ydpi="160" />
+    <path
+       style="fill:#b4d9e8;fill-opacity:1;stroke:#b3d7e5;stroke-width:0.33055457;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 1111.4232,952.17124 -19.4081,18.36061 -25.9736,0 0,36.68765 26.1375,0 19.2442,18.8093 z"
+       id="rect4787-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/sound.png"
+       inkscape:export-xdpi="160"
+       inkscape:export-ydpi="160" />
   </g>
 </svg>
