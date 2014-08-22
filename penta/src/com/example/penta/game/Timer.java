@@ -34,7 +34,7 @@ public class Timer {
 	// Time per Match
 	private float mTimePerMatch = 90.0f * 1000.0f;
 	private float mTimeBudgetCap = mTimePerMatch;
-	private float mTimeBudgetAdd = 20.0f * 1000.0f;
+	private float mTimeBudgetAdd = 10.0f * 1000.0f;
 	private long mTimeBudgetClock = 100;
 	private float mTimeBudget = mTimePerMatch;
 	private TimeUnit unit = TimeUnit.MILLISECONDS;
