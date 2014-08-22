@@ -84,7 +84,7 @@ public class RegisterFragment extends Fragment {
 		mSkip.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				mSoundManager.playClick();
 
 				LinearLayout reg = (LinearLayout) mRoot.findViewById(R.id.registration);
 				reg.removeView(mPlayerEditText);
@@ -100,6 +100,7 @@ public class RegisterFragment extends Fragment {
 		mGo.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				mSoundManager.playClick();
 				register();
 			}
 		});
@@ -107,6 +108,7 @@ public class RegisterFragment extends Fragment {
 		mPlayerEditText.setOnEditorActionListener(new OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				mSoundManager.playClick();
 				return register();
 			}
 		});
