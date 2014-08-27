@@ -175,7 +175,7 @@ public class NetworkManager {
 							caller.onUsernameTaken(pPlayerName);
 							Log.v(TAG, "Playername is taken.");
 						}
-						if(code == 2) {
+						if(code == 3 || code == 2) {
 							caller.onInvalid();
 							Log.v(TAG, "Playername is invalid.");
 						}
