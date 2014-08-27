@@ -13,7 +13,7 @@
         android:layout_height="fill_parent"
         android:layout_gravity="center"
         android:layout_weight="4"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/splash" />
     
     <LinearLayout
         android:id="@+id/control_header"
