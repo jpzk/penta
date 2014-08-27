@@ -46,6 +46,7 @@ public class Numpad {
 				Drawable image = getNumberDrawable(number);
 				btn.setTag(number); // for onClickListener
 				btn.setImageDrawable(image);
+				btn.setBackgroundResource(R.drawable.button_transparent);
 				
 				// onClickListener for each button
 				btn.setOnClickListener(new OnClickListener() {
