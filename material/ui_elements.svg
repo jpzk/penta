@@ -83,9 +83,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.4842179"
-     inkscape:cx="454.69574"
-     inkscape:cy="539.67705"
+     inkscape:zoom="0.8583805"
+     inkscape:cx="370.33788"
+     inkscape:cy="860.63304"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -2414,9 +2414,9 @@
        height="102.74136"
        x="147.57997"
        y="-46.541515"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xhdpi/splash.png"
-       inkscape:export-xdpi="319.73489"
-       inkscape:export-ydpi="319.73489"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-hdpi/splash.png"
+       inkscape:export-xdpi="240"
+       inkscape:export-ydpi="240"
        ry="0" />
     <text
        xml:space="preserve"
@@ -2450,9 +2450,9 @@
        height="32.722179"
        x="174.85344"
        y="-5.167789"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xhdpi/splash.png"
-       inkscape:export-xdpi="240.02017"
-       inkscape:export-ydpi="240.02017" />
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/splash.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
     <rect
        style="fill:#b5d9e7;fill-opacity:1;stroke:none"
        id="rect2995-1-8-8"
@@ -2460,9 +2460,9 @@
        height="32.722179"
        x="161.80118"
        y="-4.7122684"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xhdpi/splash.png"
-       inkscape:export-xdpi="240.02017"
-       inkscape:export-ydpi="240.02017" />
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/splash.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
     <path
        style="fill:#0b2f48;fill-opacity:1;stroke:#0b2f48;stroke-width:0.53852862px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 158.16301,7.3234504 193.58735,32.694946 153.37593,30.780117 z"
