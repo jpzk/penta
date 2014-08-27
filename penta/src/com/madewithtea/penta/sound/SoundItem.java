@@ -1,4 +1,4 @@
-package com.example.penta.sound;
+package com.madewithtea.penta.sound;
 
 public class SoundItem {
 

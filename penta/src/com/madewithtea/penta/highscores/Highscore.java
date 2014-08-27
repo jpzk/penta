@@ -1,4 +1,4 @@
-package com.example.penta.highscores;
+package com.madewithtea.penta.highscores;
 
 public class Highscore {
 	

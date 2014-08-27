@@ -1,4 +1,4 @@
-package com.example.penta.game;
+package com.madewithtea.penta.game;
 
 import java.util.ArrayList;
 import java.util.Collections;

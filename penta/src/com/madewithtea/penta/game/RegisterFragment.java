@@ -1,4 +1,4 @@
-package com.example.penta.game;
+package com.madewithtea.penta.game;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,11 +16,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-import com.example.penta.R;
-import com.example.penta.LocalStore;
-import com.example.penta.MainActivity;
-import com.example.penta.network.NetworkManager;
-import com.example.penta.sound.SoundManager;
+import com.madewithtea.penta.R;
+import com.madewithtea.penta.LocalStore;
+import com.madewithtea.penta.MainActivity;
+import com.madewithtea.penta.network.NetworkManager;
+import com.madewithtea.penta.sound.SoundManager;
 
 public class RegisterFragment extends Fragment {
 

@@ -1,13 +1,14 @@
-package com.example.penta.highscores;
+package com.madewithtea.penta.highscores;
 
 import java.util.ArrayList;
-import com.example.penta.R;
-import com.example.penta.LocalStore;
-import com.example.penta.MainActivity;
-import com.example.penta.highscores.Highscore;
-import com.example.penta.highscores.HighscoreAdapter;
-import com.example.penta.network.NetworkManager;
-import com.example.penta.sound.SoundManager;
+
+import com.madewithtea.penta.R;
+import com.madewithtea.penta.LocalStore;
+import com.madewithtea.penta.MainActivity;
+import com.madewithtea.penta.highscores.Highscore;
+import com.madewithtea.penta.highscores.HighscoreAdapter;
+import com.madewithtea.penta.network.NetworkManager;
+import com.madewithtea.penta.sound.SoundManager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

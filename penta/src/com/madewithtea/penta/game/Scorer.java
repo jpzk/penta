@@ -1,8 +1,8 @@
-package com.example.penta.game;
+package com.madewithtea.penta.game;
 
-import com.example.penta.R;
-import com.example.penta.LocalStore;
-import com.example.penta.network.NetworkManager;
+import com.madewithtea.penta.R;
+import com.madewithtea.penta.LocalStore;
+import com.madewithtea.penta.network.NetworkManager;
 
 import android.view.View;
 import android.widget.TextView;

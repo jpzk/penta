@@ -1,8 +1,8 @@
-package com.example.penta.sound;
+package com.madewithtea.penta.sound;
 
 import java.io.IOException;
 
-import com.example.penta.LocalStore;
+import com.madewithtea.penta.LocalStore;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;

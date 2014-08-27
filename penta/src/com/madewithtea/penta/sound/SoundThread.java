@@ -1,4 +1,4 @@
-package com.example.penta.sound;
+package com.madewithtea.penta.sound;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

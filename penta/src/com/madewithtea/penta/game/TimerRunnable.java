@@ -1,4 +1,4 @@
-package com.example.penta.game;
+package com.madewithtea.penta.game;
 
 import android.os.SystemClock;
 import android.util.Log;

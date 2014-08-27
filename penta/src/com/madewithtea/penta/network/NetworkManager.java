@@ -1,20 +1,22 @@
-package com.example.penta.network;
+package com.madewithtea.penta.network;
 
 import com.loopj.android.http.*;
+import com.madewithtea.penta.game.RegisterFragment;
+import com.madewithtea.penta.game.Scorer;
+import com.madewithtea.penta.highscores.Highscore;
+import com.madewithtea.penta.highscores.HighscoreAdapter;
+import com.madewithtea.penta.highscores.HighscoreFragment;
 
 import java.util.ArrayList;
+
 import org.apache.http.Header;
-import com.example.penta.game.RegisterFragment;
-import com.example.penta.game.Scorer;
-import com.example.penta.highscores.Highscore;
-import com.example.penta.highscores.HighscoreAdapter;
-import com.example.penta.highscores.HighscoreFragment;
 
 import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

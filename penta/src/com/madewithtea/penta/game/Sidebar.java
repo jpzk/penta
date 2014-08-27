@@ -1,9 +1,9 @@
-package com.example.penta.game;
+package com.madewithtea.penta.game;
 
-import com.example.penta.R;
-import com.example.penta.MainActivity;
-import com.example.penta.sound.SoundManager;
+import com.madewithtea.penta.R;
 import com.google.android.gms.internal.mf;
+import com.madewithtea.penta.MainActivity;
+import com.madewithtea.penta.sound.SoundManager;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;

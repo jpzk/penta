@@ -1,8 +1,9 @@
-package com.example.penta.highscores;
+package com.madewithtea.penta.highscores;
 
 import java.util.ArrayList;
-import com.example.penta.R;
-import com.example.penta.network.NetworkManager;
+
+import com.madewithtea.penta.R;
+import com.madewithtea.penta.network.NetworkManager;
 
 import android.content.Context;
 import android.util.Log;

@@ -1,11 +1,11 @@
-package com.example.penta;
+package com.madewithtea.penta;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
 
 public class LocalStore {
 	
-	public static final String PREFS_NAME = "Penta12222";
+	public static final String PREFS_NAME = "Pentaxxxx";
 	
 	// Keys
 	public static final String PLAYER_KEY = "playerName";

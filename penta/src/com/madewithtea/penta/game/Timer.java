@@ -1,11 +1,11 @@
-package com.example.penta.game;
+package com.madewithtea.penta.game;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-import com.example.penta.R;
-import com.example.penta.sound.SoundManager;
+import com.madewithtea.penta.R;
+import com.madewithtea.penta.sound.SoundManager;
 
 import android.util.Log;
 import android.view.View;

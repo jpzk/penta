@@ -1,13 +1,13 @@
-package com.example.penta;
+package com.madewithtea.penta;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.penta.game.GameFragment;
-import com.example.penta.game.RegisterFragment;
-import com.example.penta.highscores.HighscoreFragment;
-import com.example.penta.sound.SoundManager;
+import com.madewithtea.penta.game.GameFragment;
+import com.madewithtea.penta.game.RegisterFragment;
+import com.madewithtea.penta.highscores.HighscoreFragment;
+import com.madewithtea.penta.sound.SoundManager;
 
 public class GamePagerAdapter extends FragmentStatePagerAdapter {
 	

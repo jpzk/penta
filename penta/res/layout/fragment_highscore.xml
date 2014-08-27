@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:padding="40dp"
     android:showDividers="none"
-    tools:context="com.example.penta.MainActivity$PlaceholderFragment"
+    tools:context="com.madewithtea.penta.MainActivity$PlaceholderFragment"
     tools:ignore="Deprecated,ContentDescription" >
 
     <LinearLayout

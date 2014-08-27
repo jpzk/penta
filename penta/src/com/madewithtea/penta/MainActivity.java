@@ -1,14 +1,14 @@
-package com.example.penta;
+package com.madewithtea.penta;
 
 import java.io.IOException;
 
-import com.example.penta.R;
-import com.example.penta.highscores.HighscoreFragment;
-import com.example.penta.network.NetworkManager;
-import com.example.penta.sound.SoundManager;
+import com.madewithtea.penta.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.madewithtea.penta.highscores.HighscoreFragment;
+import com.madewithtea.penta.network.NetworkManager;
+import com.madewithtea.penta.sound.SoundManager;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;

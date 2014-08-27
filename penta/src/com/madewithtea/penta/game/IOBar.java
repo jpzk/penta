@@ -1,9 +1,9 @@
-package com.example.penta.game;
+package com.madewithtea.penta.game;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.penta.R;
+import com.madewithtea.penta.R;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
