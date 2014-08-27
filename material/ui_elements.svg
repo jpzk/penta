@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="744.09448"
@@ -17,6 +18,18 @@
    sodipodi:docname="ui_elements.svg">
   <defs
      id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4418">
+      <stop
+         style="stop-color:#f9f9f9;stop-opacity:1;"
+         offset="0"
+         id="stop4420" />
+      <stop
+         style="stop-color:#f9f9f9;stop-opacity:0;"
+         offset="1"
+         id="stop4422" />
+    </linearGradient>
     <marker
        inkscape:stockid="Arrow1Lend"
        orient="auto"
@@ -45,6 +58,23 @@
          transform="matrix(0.8,0,0,0.8,10,0)"
          inkscape:connector-curvature="0" />
     </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4418"
+       id="linearGradient4424"
+       x1="16.931925"
+       y1="25.934776"
+       x2="16.848516"
+       y2="35.276527"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       id="filter4434">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.10004718"
+         id="feGaussianBlur4436" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -53,9 +83,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0314815"
-     inkscape:cx="178"
-     inkscape:cy="888"
+     inkscape:zoom="2.3738764"
+     inkscape:cx="122.21717"
+     inkscape:cy="1027.826"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -85,7 +115,7 @@
        id="guide3679" />
     <sodipodi:guide
        orientation="1,0"
-       position="0,1220"
+       position="0,1022.5047"
        id="guide4207" />
   </sodipodi:namedview>
   <metadata
@@ -96,7 +126,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -105,6 +135,27 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,0.00246956)">
+    <rect
+       style="fill:#ffffff;fill-opacity:0;stroke:none"
+       id="rect4205"
+       width="27"
+       height="27"
+       x="0"
+       y="22.359713"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
+    <rect
+       style="fill:#858683;fill-opacity:1;stroke:none"
+       id="rect3199-1"
+       width="23.887859"
+       height="24.194742"
+       x="1.6066709"
+       y="23.641754"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480"
+       ry="1.8602912" />
     <g
        id="g4015"
        transform="matrix(0.12829517,0,0,0.12829517,5.1604777,-117.13348)" />
@@ -2270,86 +2321,143 @@
        inkscape:export-xdpi="160"
        inkscape:export-ydpi="160" />
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       id="rect4205"
-       width="27"
-       height="27"
-       x="0"
-       y="22.359713" />
-    <rect
        style="fill:#0b2f48;fill-opacity:1;stroke:none"
        id="rect3199"
-       width="24.476357"
-       height="24.476357"
-       x="1.2812333"
-       y="23.847578"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-mdpi/ic_launcher.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160"
-       ry="1.8819441" />
-    <rect
-       style="fill:#0b2f48;fill-opacity:0.31188118;stroke:none"
-       id="rect3199-1"
-       width="24.555128"
-       height="24.870583"
-       x="1.2730373"
-       y="23.243153"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-mdpi/ic_launcher.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160"
-       ry="1.9122554" />
+       width="23.81123"
+       height="23.81123"
+       x="1.6146445"
+       y="24.512705"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480"
+       ry="1.8308036" />
     <text
        xml:space="preserve"
-       style="font-size:16.61027718px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b5d9e7;fill-opacity:1;stroke:none;font-family:Abyssinica SIL;-inkscape-font-specification:Abyssinica SIL"
-       x="14.120854"
-       y="41.921349"
+       style="font-size:16.15890503px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b5d9e7;fill-opacity:1;stroke:none;font-family:Abyssinica SIL;-inkscape-font-specification:Abyssinica SIL"
+       x="14.105358"
+       y="42.095333"
        id="text3201"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/ic_launcher.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160"><tspan
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480"><tspan
          sodipodi:role="line"
          id="tspan3203"
-         x="14.120854"
-         y="41.921349"
+         x="14.105358"
+         y="42.095333"
          style="fill:#b5d9e7;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto">5</tspan></text>
     <rect
        style="fill:#b5d9e7;fill-opacity:1;stroke:none"
        id="rect2995"
-       width="1.3326377"
-       height="7.7954955"
-       x="10.962193"
-       y="33.65625"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/ic_launcher.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160" />
+       width="1.2964242"
+       height="7.5836587"
+       x="11.032531"
+       y="34.054832"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
     <rect
        style="fill:#b5d9e7;fill-opacity:1;stroke:none"
        id="rect2995-1"
-       width="1.3326377"
-       height="7.7954955"
-       x="7.7786756"
-       y="33.704155"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/ic_launcher.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160" />
+       width="1.2964242"
+       height="7.5836587"
+       x="7.935524"
+       y="34.101437"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
     <rect
        style="fill:#b5d9e7;fill-opacity:1;stroke:none"
        id="rect2995-1-8"
-       width="1.3326377"
-       height="7.7954955"
-       x="4.6691942"
-       y="33.812675"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/ic_launcher.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160" />
+       width="1.2964242"
+       height="7.5836587"
+       x="4.9105401"
+       y="34.207008"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
     <path
-       style="fill:#0b2f48;fill-opacity:1;stroke:#0b2f48;stroke-width:0.12829517px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 3.802464,36.679981 8.43924,6.044322 -9.57968,-0.456175 z"
+       style="fill:#0b2f48;fill-opacity:1;stroke:#0b2f48;stroke-width:0.12480884px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 4.0673626,36.996397 12.277272,42.876469 2.9579133,42.43269 z"
        id="path3033"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/ressources/ic_launcher.png"
-       inkscape:export-xdpi="160"
-       inkscape:export-ydpi="160" />
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
+    <rect
+       style="fill:url(#linearGradient4424);fill-opacity:1;stroke:none;opacity:0.06837607;filter:url(#filter4434)"
+       id="rect3199-6"
+       width="23.81123"
+       height="23.81123"
+       x="1.6899698"
+       y="24.538631"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480"
+       ry="1.8308036" />
+    <rect
+       style="fill:#0b2f48;fill-opacity:1;stroke:none"
+       id="rect3199-63"
+       width="102.74136"
+       height="102.74136"
+       x="147.57997"
+       y="-46.541515"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480"
+       ry="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:69.72288513px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b5d9e7;fill-opacity:1;stroke:none;font-family:Abyssinica SIL;-inkscape-font-specification:Abyssinica SIL"
+       x="201.47525"
+       y="29.324495"
+       id="text3201-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480"><tspan
+         sodipodi:role="line"
+         id="tspan3203-5"
+         x="201.47525"
+         y="29.324495"
+         style="fill:#b5d9e7;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto">5</tspan></text>
+    <rect
+       style="fill:#b5d9e7;fill-opacity:1;stroke:none"
+       id="rect2995-6"
+       width="5.5938468"
+       height="32.722179"
+       x="188.21649"
+       y="-5.3688807"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
+    <rect
+       style="fill:#b5d9e7;fill-opacity:1;stroke:none"
+       id="rect2995-1-5"
+       width="5.5938468"
+       height="32.722179"
+       x="174.85344"
+       y="-5.167789"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
+    <rect
+       style="fill:#b5d9e7;fill-opacity:1;stroke:none"
+       id="rect2995-1-8-8"
+       width="5.5938468"
+       height="32.722179"
+       x="161.80118"
+       y="-4.7122684"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
+    <path
+       style="fill:#0b2f48;fill-opacity:1;stroke:#0b2f48;stroke-width:0.53852862px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 158.16301,7.3234504 193.58735,32.694946 153.37593,30.780117 z"
+       id="path3033-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/ic_launcher.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
   </g>
 </svg>
