@@ -75,6 +75,46 @@
          stdDeviation="0.10004718"
          id="feGaussianBlur4436" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4418-8"
+       id="linearGradient4424-4"
+       x1="16.931925"
+       y1="25.934776"
+       x2="16.848516"
+       y2="35.276527"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4418-8">
+      <stop
+         style="stop-color:#f9f9f9;stop-opacity:1;"
+         offset="0"
+         id="stop4420-9" />
+      <stop
+         style="stop-color:#f9f9f9;stop-opacity:0;"
+         offset="1"
+         id="stop4422-1" />
+    </linearGradient>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter4434-1">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.10004718"
+         id="feGaussianBlur4436-2" />
+    </filter>
+    <linearGradient
+       gradientTransform="translate(40.544543,-190.45396)"
+       y2="35.276527"
+       x2="16.848516"
+       y1="25.934776"
+       x1="16.931925"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3385"
+       xlink:href="#linearGradient4418-8"
+       inkscape:collect="always" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -83,9 +123,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.8583805"
-     inkscape:cx="370.33788"
-     inkscape:cy="860.63304"
+     inkscape:zoom="1.57"
+     inkscape:cx="167.10483"
+     inkscape:cy="1051.3089"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -2414,9 +2454,9 @@
        height="102.74136"
        x="147.57997"
        y="-46.541515"
-       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-hdpi/splash.png"
-       inkscape:export-xdpi="240"
-       inkscape:export-ydpi="240"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/ic_launcher-web.png"
+       inkscape:export-xdpi="448.5"
+       inkscape:export-ydpi="448.5"
        ry="0" />
     <text
        xml:space="preserve"
@@ -2757,5 +2797,81 @@
          x="26.922554"
          y="171.09988"
          style="font-size:17.45711899px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#b5d9e7;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto Bold">7</tspan></text>
+    <rect
+       style="fill:#0b2f48;fill-opacity:1;stroke:none"
+       id="rect3199-63-3"
+       width="102.74136"
+       height="102.74136"
+       x="44.170712"
+       y="-164.61606"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/ic_launcher-web.png"
+       inkscape:export-xdpi="448.5"
+       inkscape:export-ydpi="448.5"
+       ry="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:69.72288513px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b5d9e7;fill-opacity:1;stroke:none;font-family:Abyssinica SIL;-inkscape-font-specification:Abyssinica SIL"
+       x="98.065994"
+       y="-88.750061"
+       id="text3201-6-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xhdpi/splash.png"
+       inkscape:export-xdpi="240.02017"
+       inkscape:export-ydpi="240.02017"><tspan
+         sodipodi:role="line"
+         id="tspan3203-5-5"
+         x="98.065994"
+         y="-88.750061"
+         style="fill:#b5d9e7;fill-opacity:1;font-family:Roboto;-inkscape-font-specification:Roboto">5</tspan></text>
+    <rect
+       style="fill:#b5d9e7;fill-opacity:1;stroke:none"
+       id="rect2995-6-3"
+       width="5.5938468"
+       height="32.722179"
+       x="84.807236"
+       y="-123.44344"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xhdpi/splash.png"
+       inkscape:export-xdpi="240.02017"
+       inkscape:export-ydpi="240.02017" />
+    <rect
+       style="fill:#b5d9e7;fill-opacity:1;stroke:none"
+       id="rect2995-1-5-7"
+       width="5.5938468"
+       height="32.722179"
+       x="71.444183"
+       y="-123.24235"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/splash.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
+    <rect
+       style="fill:#b5d9e7;fill-opacity:1;stroke:none"
+       id="rect2995-1-8-8-1"
+       width="5.5938468"
+       height="32.722179"
+       x="58.391918"
+       y="-122.78681"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xxhdpi/splash.png"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480" />
+    <path
+       style="fill:#0b2f48;fill-opacity:1;stroke:#0b2f48;stroke-width:0.53852862px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 54.753757,-110.7511 35.42434,25.371496 -40.21142,-1.914829 z"
+       id="path3033-7-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xhdpi/splash.png"
+       inkscape:export-xdpi="240.02017"
+       inkscape:export-ydpi="240.02017" />
+    <rect
+       style="opacity:0.06837607;fill:url(#linearGradient3385);fill-opacity:1;stroke:none;filter:url(#filter4434-1)"
+       id="rect3199-6-7"
+       width="23.81123"
+       height="23.81123"
+       x="42.234512"
+       y="-165.91533"
+       inkscape:export-filename="/home/nuqu/Work/3minimalists/penta/penta/res/drawable-xhdpi/ic_launcher.png"
+       inkscape:export-xdpi="320"
+       inkscape:export-ydpi="320"
+       ry="1.8308036"
+       transform="matrix(4.356269,0,0,4.356269,-140.30756,547.47129)" />
   </g>
 </svg>
