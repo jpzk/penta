@@ -79,27 +79,27 @@ public class MainActivity extends FragmentActivity {
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mPagerAdapter);
 
-		mAdActive= false;
-		
-		if(mAdActive) {
-			// Set Ads
-			mAdView = new AdView(this);
-			mAdView.setAdUnitId("ca-app-pub-2989103197995605/5567369774");
-			mAdView.setAdSize(AdSize.SMART_BANNER);
-	
-			// Initiate a generic request.
-			AdRequest request = new AdRequest.Builder()
-		    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-		    .addTestDevice("EAC7E252F6AAEFA378521AC1ECE3829B")  // Moto G
-		    .build();
-			
-			mAdView.loadAd(request);
-	
-			// Lookup your LinearLayout assuming it's been given
-			// the attribute android:id="@+id/mainLayout".
-			LinearLayout layout = (LinearLayout) findViewById(R.id.container);
-			layout.addView(mAdView);
-		}
+//		mAdActive= false;
+//		
+//		if(mAdActive) {
+//			// Set Ads
+//			mAdView = new AdView(this);
+//			mAdView.setAdUnitId("ca-app-pub-2989103197995605/5567369774");
+//			mAdView.setAdSize(AdSize.SMART_BANNER);
+//	
+//			// Initiate a generic request.
+//			AdRequest request = new AdRequest.Builder()
+//		    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
+//		    .addTestDevice("EAC7E252F6AAEFA378521AC1ECE3829B")  // Moto G
+//		    .build();
+//			
+//			mAdView.loadAd(request);
+//	
+//			// Lookup your LinearLayout assuming it's been given
+//			// the attribute android:id="@+id/mainLayout".
+//			LinearLayout layout = (LinearLayout) findViewById(R.id.container);
+//			layout.addView(mAdView);
+//		}
 	}
 
 	// Standard Activity Lifecyle
