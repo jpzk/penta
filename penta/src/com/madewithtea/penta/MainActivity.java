@@ -3,9 +3,10 @@ package com.madewithtea.penta;
 import java.io.IOException;
 
 import com.madewithtea.penta.R;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.madewithtea.penta.highscores.HighscoreFragment;
 import com.madewithtea.penta.network.NetworkManager;
 import com.madewithtea.penta.sound.SoundManager;
@@ -17,8 +18,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
@@ -41,7 +40,19 @@ public class MainActivity extends FragmentActivity {
 	// AdView
 	private AdView mAdView;
 	private boolean mAdActive;
-	
+
+	// Tracker specific stuff
+	private Tracker mAppTracker = null;
+
+	// Get the application wide tracker
+	public synchronized Tracker getAppTracker() {
+		if(mAppTracker == null) {
+			GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+			mAppTracker = analytics.newTracker(R.xml.app_tracker);
+		}
+		return mAppTracker;
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,27 +90,28 @@ public class MainActivity extends FragmentActivity {
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mPagerAdapter);
 
-//		mAdActive= false;
-//		
-//		if(mAdActive) {
-//			// Set Ads
-//			mAdView = new AdView(this);
-//			mAdView.setAdUnitId("ca-app-pub-2989103197995605/5567369774");
-//			mAdView.setAdSize(AdSize.SMART_BANNER);
-//	
-//			// Initiate a generic request.
-//			AdRequest request = new AdRequest.Builder()
-//		    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-//		    .addTestDevice("EAC7E252F6AAEFA378521AC1ECE3829B")  // Moto G
-//		    .build();
-//			
-//			mAdView.loadAd(request);
-//	
-//			// Lookup your LinearLayout assuming it's been given
-//			// the attribute android:id="@+id/mainLayout".
-//			LinearLayout layout = (LinearLayout) findViewById(R.id.container);
-//			layout.addView(mAdView);
-//		}
+		// mAdActive= false;
+		//
+		// if(mAdActive) {
+		// // Set Ads
+		// mAdView = new AdView(this);
+		// mAdView.setAdUnitId("ca-app-pub-2989103197995605/5567369774");
+		// mAdView.setAdSize(AdSize.SMART_BANNER);
+		//
+		// // Initiate a generic request.
+		// AdRequest request = new AdRequest.Builder()
+		// .addTestDevice(AdRequest.DEVICE_ID_EMULATOR) // All emulators
+		// .addTestDevice("EAC7E252F6AAEFA378521AC1ECE3829B") // Moto G
+		// .build();
+		//
+		// mAdView.loadAd(request);
+		//
+		// // Lookup your LinearLayout assuming it's been given
+		// // the attribute android:id="@+id/mainLayout".
+		// LinearLayout layout = (LinearLayout) findViewById(R.id.container);
+		// layout.addView(mAdView);
+		// }
+		
 	}
 
 	// Standard Activity Lifecyle
@@ -109,9 +121,9 @@ public class MainActivity extends FragmentActivity {
 
 		// Stop sound engine
 		this.mSoundManager.stopSound();
-		
+
 		// Stop advertisement
-		if(mAdActive) {
+		if (mAdActive) {
 			mAdView.destroy();
 		}
 	}
@@ -119,14 +131,14 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public void onPause() {
 		super.onPause();
-		if(mAdActive) 
+		if (mAdActive)
 			mAdView.pause();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		if(mAdActive) 
+		if (mAdActive)
 			mAdView.resume();
 	}
 
@@ -140,15 +152,23 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	public void changeToGame() {
+		Tracker tracker = getAppTracker();
+        tracker.setScreenName("PentaApp GameView");
+        tracker.send(new HitBuilders.AppViewBuilder().build());
+		
 		mViewPager.setCurrentItem(1);
 	}
-	
+
 	public void onRegistered() {
 		mPagerAdapter.onRegistered();
 	}
 
 	public void changeToHighscore() {
-		if(!mNetwork.isOnline()) {
+		Tracker tracker = getAppTracker();
+        tracker.setScreenName("PentaApp HighscoreView");
+        tracker.send(new HitBuilders.AppViewBuilder().build());
+		
+		if (!mNetwork.isOnline()) {
 			Context context = getApplicationContext();
 			CharSequence text = "You have to be online.";
 			int duration = Toast.LENGTH_SHORT;
@@ -156,7 +176,8 @@ public class MainActivity extends FragmentActivity {
 			Toast toast = Toast.makeText(context, text, duration);
 			toast.show();
 		} else {
-			HighscoreFragment frag = (HighscoreFragment) mPagerAdapter.getItem(2);
+			HighscoreFragment frag = (HighscoreFragment) mPagerAdapter
+					.getItem(2);
 			frag.onSwitch();
 			mViewPager.setCurrentItem(2);
 		}

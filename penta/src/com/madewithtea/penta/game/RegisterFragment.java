@@ -1,6 +1,5 @@
 package com.madewithtea.penta.game;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.madewithtea.penta.R;
 import com.madewithtea.penta.LocalStore;
 import com.madewithtea.penta.MainActivity;
@@ -84,6 +85,12 @@ public class RegisterFragment extends Fragment {
 		mSkip.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Tracker tracker = mActivity.getAppTracker();
+				tracker.send(new HitBuilders.EventBuilder()
+		        .setCategory("Registration")
+		        .setAction("skip")
+		        .build());
+				
 				mSoundManager.playClick();
 
 				LinearLayout reg = (LinearLayout) mRoot.findViewById(R.id.registration);
@@ -100,6 +107,12 @@ public class RegisterFragment extends Fragment {
 		mGo.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Tracker tracker = mActivity.getAppTracker();
+				tracker.send(new HitBuilders.EventBuilder()
+		        .setCategory("Registration")
+		        .setAction("register")
+		        .build());
+				
 				mSoundManager.playClick();
 				register();
 			}
@@ -123,15 +136,35 @@ public class RegisterFragment extends Fragment {
 	}
 	
 	public void onUsernameTaken(final String pPlayerName) {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Registration")
+        .setAction("username_taken")
+        .setLabel("error")
+        .build());
+		
 		mOutput.setText("The player name is already taken.");
 	}
 	
 	public void onInvalid() {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Registration")
+        .setAction("invalid_username")
+        .setLabel("error")
+        .build());
+		
 		mOutput.setText("The player name must be longer than 4" +
 		" and at most 8 characters.");
 	}
 	
 	public void onRegistered(final String pPlayerName, final String pPassword) {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Registration")
+        .setAction("registered")
+        .build());
+		
 		// Store password etc.
 		mStore.putPassword(pPassword);
 		mStore.putPlayerName(pPlayerName);

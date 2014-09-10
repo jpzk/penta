@@ -1,6 +1,8 @@
 package com.madewithtea.penta.game;
 
 import com.madewithtea.penta.R;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.internal.mf;
 import com.madewithtea.penta.MainActivity;
 import com.madewithtea.penta.sound.SoundManager;
@@ -49,6 +51,12 @@ public class Sidebar {
 		muteButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Tracker tracker = ((MainActivity) mParent.getActivity()).getAppTracker();
+				tracker.send(new HitBuilders.EventBuilder()
+		        .setCategory("Game")
+		        .setAction("pressed_mute")
+		        .build());
+				
 				mSoundManager.playSystemClick();
 				boolean state = mSoundManager.muteunmute();
 				mSoundManager.playSystemClick();
@@ -67,6 +75,12 @@ public class Sidebar {
 		helpBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Tracker tracker = ((MainActivity) mParent.getActivity()).getAppTracker();
+				tracker.send(new HitBuilders.EventBuilder()
+		        .setCategory("Game")
+		        .setAction("pressed_help")
+		        .build());
+				
 				mSoundManager.playSystemClick();
 				Log.v("Sidebar", "help button pressed");
 				if(mHelp.isHelpOpen()) {
@@ -86,6 +100,12 @@ public class Sidebar {
 		initGameBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Tracker tracker = ((MainActivity) mParent.getActivity()).getAppTracker();
+				tracker.send(new HitBuilders.EventBuilder()
+		        .setCategory("Game")
+		        .setAction("pressed_restart")
+		        .build());
+				
 				mSoundManager.playSystemClick();
 				mParent.endMatch();
 				mHelp.hideHelp();
@@ -99,6 +119,12 @@ public class Sidebar {
 		btn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Tracker tracker = ((MainActivity) mParent.getActivity()).getAppTracker();
+				tracker.send(new HitBuilders.EventBuilder()
+		        .setCategory("Game")
+		        .setAction("pressed_highscore")
+		        .build());
+				
 				mSoundManager.playSystemClick();
 				mParent.endMatch();
 				mHelp.hideHelp();

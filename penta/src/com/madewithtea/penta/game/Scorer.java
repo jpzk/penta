@@ -1,5 +1,8 @@
 package com.madewithtea.penta.game;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.madewithtea.penta.MainActivity;
 import com.madewithtea.penta.R;
 import com.madewithtea.penta.LocalStore;
 import com.madewithtea.penta.network.NetworkManager;
@@ -15,14 +18,17 @@ public class Scorer {
 	private int mScore, mBestScore;
 	private NetworkManager mNetwork;
 	private LocalStore mStore;
+	private MainActivity mActivity;
 	
 	/**
 	 * 
 	 * @param fragment
 	 * @param root
 	 */
-	public Scorer(View root, NetworkManager pNetwork, LocalStore pStore) {
+	public Scorer(MainActivity activity, View root, NetworkManager pNetwork, 
+			LocalStore pStore) {
 		
+		mActivity = activity;
 		mScoreTV = (TextView) root.findViewById(R.id.score_number);
 		mBestScoreTV = (TextView) root.findViewById(R.id.bestscore_number);
 		mPlayerName = (TextView) root.findViewById(R.id.player_name);
@@ -105,6 +111,13 @@ public class Scorer {
 	}
 	
 	public void uploadScore(final int score) {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Game")
+        .setAction("upload_score")
+        .setValue(score)
+        .build());
+		
 		String pUsername = mStore.getPlayerName();
 		String pPassword = mStore.getPassword();
 		

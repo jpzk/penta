@@ -43,7 +43,6 @@ public class NetworkManager {
 		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 		return networkInfo != null && networkInfo.isConnected();
 	}
-
 	
 	public void getAuthTokenH(String pUsername, String pPassword,
 			final HighscoreFragment caller) {

@@ -3,6 +3,8 @@ package com.madewithtea.penta.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.madewithtea.penta.R;
 import com.madewithtea.penta.LocalStore;
 import com.madewithtea.penta.MainActivity;
@@ -95,7 +97,7 @@ public class GameFragment extends Fragment {
 		}
 		
 		// Initialize components;
-		mScorer = new Scorer(root, mNetwork, mStore);
+		mScorer = new Scorer(mActivity, root, mNetwork, mStore);
 		mIOBar = new IOBar(this, root);
 		mNumpad = new Numpad(this, root);
 		mTimer = new Timer(this, mSoundManager, root);
@@ -168,6 +170,12 @@ public class GameFragment extends Fragment {
 	 * Initialize a new match.
 	 */
 	public void initMatch() {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Game")
+        .setAction("initialize_match")
+        .build());
+		
 		started = false;
 		mScorer.resetScore();
 		mIOBar.prepareGame();
@@ -179,6 +187,12 @@ public class GameFragment extends Fragment {
 	 * End a match due to time out or restart.
 	 */
 	public void endMatch() {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Game")
+        .setAction("end_match_forced")
+        .build());
+		
 		Log.v(TAG, "Called endMatch in GameFragment");
 		mTimer.stopMeasuring();
 		initMatch();
@@ -188,6 +202,12 @@ public class GameFragment extends Fragment {
 	 * Called when the game ends naturally by time-out.
 	 */
 	public void endMatchByTimeout() {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Game")
+        .setAction("end_match_timeout")
+        .build());
+		
 		Log.v(TAG, "Called endMatch in GameFragment by Time out");
 		mTimer.stopMeasuring();
 		

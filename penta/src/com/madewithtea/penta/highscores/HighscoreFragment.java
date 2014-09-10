@@ -2,6 +2,8 @@ package com.madewithtea.penta.highscores;
 
 import java.util.ArrayList;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.madewithtea.penta.R;
 import com.madewithtea.penta.LocalStore;
 import com.madewithtea.penta.MainActivity;
@@ -85,15 +87,33 @@ public class HighscoreFragment extends Fragment {
 	}
 	
 	public void onAuthToken(String pAuthToken) {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Highscore")
+        .setAction("got_auth_token")
+        .build());
+		
 		mNetwork.getHighscore(pAuthToken, this);
 	}
 	
 	public void onPageResult(final ArrayList<Highscore> scores) {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Highscore")
+        .setAction("new_page_results")
+        .build());
+		
 		mAdapter.clear();
 		mAdapter.addAll(scores);
 	}
 	
 	public void onHighscoreResult(int score, int rank) {
+		Tracker tracker = mActivity.getAppTracker();
+		tracker.send(new HitBuilders.EventBuilder()
+        .setCategory("Highscore")
+        .setAction("get_own_highscore")
+        .build());
+		
 		mPlayerName.setText(mStore.getPlayerName());
 		mRank.setText(String.valueOf(rank));
 		mBestScore.setText(String.valueOf(score));
